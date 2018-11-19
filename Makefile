@@ -11,7 +11,7 @@ main: main.o
 main.o: main.c
 
 flash: main-0x00000.bin
-	esptool.py write_flash 0 main-0x00000.bin 0x10000 main-0x10000.bin
+	esptool.py --baud 115200 write_flash 0 main-0x00000.bin 0x10000 main-0x10000.bin
 
 clean:
 	rm -f main main.o main-0x00000.bin main-0x10000.bin
