@@ -25,7 +25,7 @@ void some_timerfunc(void *arg)
 
 void ICACHE_FLASH_ATTR user_init()
 {
-	/* init gpio subsytem */
+	/* init gpio subsystem */
 	gpio_init();
 
 	/* configure UART TXD to be GPIO1, set as output */
