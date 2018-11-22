@@ -24,3 +24,8 @@ flash: user_main-0x00000.bin
 clean:
 	rm -f user_main user_main.o user_main-0x00000.bin user_main-0x10000.bin
 	
+erase_flash:
+	$(ESPTOOL) erase_flash
+
+read_info:
+	$(ESPTOOL) flash_id
