@@ -12,10 +12,11 @@ ESPTOOL=../esptool.py
 #FLASH_SIZE = detect
 #------------------------------------------------------------------------------------#
 user_main-0x00000.bin: user_main
-	esptool.py elf2image user_main
+	$(ESPTOOL) elf2image user_main
 
 user_main: 
 	$(CC) $(CFLAGS) $(LDLIBS) $(LDFLAGS) user_main.c -o user_main
+	size -d user_main
 
 flash: user_main-0x00000.bin
 	# $(ESPTOOL) --after hard_reset --baud $(BAUDRATE) --port $(PORT) write_flash --flash_mode $(FLASH_MODE) --flash_size $(FLASH_SIZE) 0x00000 user_main-0x00000.bin 0x10000 user_main-0x10000.bin
