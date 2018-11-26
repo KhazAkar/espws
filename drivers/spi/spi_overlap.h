@@ -22,53 +22,64 @@
  *
  */
 
-#ifndef SPI_APP_H
-#define SPI_APP_H
+#ifndef SPI_OVERLAP_APP_H
+#define SPI_OVERLAP_APP_H
 
-#include "spi_register.h"
 #include "ets_sys.h"
-#include "osapi.h"
-#include "uart.h"
-#include "os_type.h"
 #include "spi_flash.h"
+#define HSPI_OVERLAP
+//#define NO_HSPI_DEVICE
+#define HOST_INF_SEL 0x3ff00028 
+#define FUNC_SPI_CS2 1
+#define FUNC_SPI_CS1 1
+#define reg_cspi_overlap  (BIT7)
 
 #define SPI_FLASH_BYTES_LEN                24
 #define IODATA_START_ADDR                 BIT0
 #define SPI_BUFF_BYTE_NUM                    32
 
-/*SPI number define*/
-#define SPI 			0
-#define HSPI			1
+#define PERIPHS_IO_MUX_BACKUP		0
+#define SPI_USER_BACKUP  	1
+#define SPI_CTRL_BACKUP  	2 
+#define SPI_CLOCK_BACKUP 	3
+#define SPI_USER1_BACKUP	4
+#define SPI_USER2_BACKUP	5
+#define SPI_CMD_BACKUP		6
+#define SPI_PIN_BACKUP		7
+#define SPI_SLAVE_BACKUP	8
 
-void cache_flush(void);
-//spi master init funtion
-void spi_master_init(uint8 spi_no);
+#define HSPI_CS_DEV			0
+#define SPI_CS1_DEV			1
+#define SPI_CS2_DEV			2
+#define SPI_CS0_FLASH		3
+#define HSPI_IDLE			4
 
-//lcd drive function
-void spi_lcd_9bit_write(uint8 spi_no,uint8 high_bit,uint8 low_8bit);
-//use spi send 8bit data
-void spi_mast_byte_write(uint8 spi_no,uint8 data);
+struct hspi_device_config{
+	uint8 active:1;
+	uint8 clk_polar:1;
+	uint8 res:1;
+	uint8 clk_div:5;
+};
 
-//transmit data to esp8266 slave buffer,which needs 16bit transmission ,
-//first byte is master command 0x04, second byte is master data
-void spi_byte_write_espslave(uint8 spi_no,uint8 data);
-//read data from esp8266 slave buffer,which needs 16bit transmission ,
-//first byte is master command 0x06, second byte is to read slave data
-void spi_byte_read_espslave(uint8 spi_no,uint8 *data);
+struct hspi_device_register{
+	uint32 hspi_flash_reg_backup[9];
+	uint32 hspi_dev_reg_backup[9];
+	struct hspi_device_config hspi_dev_conf[4];
+	uint8 selected_dev_num:3;
+	uint8 spi_io_80m:1;
+	uint8 hspi_reg_backup_flag:1;
+	uint8 res:3;
+};
 
- //esp8266 slave mode initial
-void spi_slave_init(uint8 spi_no,uint8 data_len);
-  //esp8266 slave isr handle funtion,tiggered when any transmission is finished.
-  //the function is registered in spi_slave_init.
-void spi_slave_isr_handler(void *para); 
+void hspi_overlap_init(void);
+void hspi_overlap_deinit(void);
+void spi_reg_recover(uint8 spi_no,uint32* backup_mem);
+void spi_reg_backup(uint8 spi_no,uint32* backup_mem);
 
+void hspi_master_dev_init(uint8 dev_no,uint8 clk_polar,uint8 clk_div);
+void hspi_dev_sel(uint8 dev_no);
 
-//hspi test function, used to test esp8266 spi slave
-void hspi_master_readwrite_repeat(void);
-
-
-void spi_test_init(void);
-
+void hspi_overlap_flash_init(void);
+SpiFlashOpResult hspi_overlap_read_flash_data(SpiFlashChip * spi, uint32 flash_addr, uint32 * addr_dest, uint32 byte_length);
 
 #endif
-
