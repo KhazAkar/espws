@@ -1,8 +1,8 @@
-#include "ets_sys.h"
-#include "osapi.h"
-#include "gpio.h"
-#include "os_type.h"
-#include "newlib.h"
+#include <c_types.h>
+#include <eagle_soc.h>
+#include <gpio.h>
+#include <os_type.h>
+#include <osapi.h>
 
 /* ESP-12 modules have LED on GPIO2. Change to another GPIO
  for other boards. */
