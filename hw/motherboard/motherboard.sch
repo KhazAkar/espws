@@ -3,7 +3,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 1 4
 Title "ESPWS-Motherboard"
 Date "2018-11-19"
 Rev "0.1"
@@ -32,15 +32,9 @@ F0 "Interconnections" 50
 F1 "Interconnections.sch" 50
 $EndSheet
 $Sheet
-S 1000 3900 3050 1950
-U 5BF45177
-F0 "BatteryPackAndRecharge" 50
-F1 "BatteryPackAndRecharge.sch" 50
-$EndSheet
-$Sheet
-S 950  1150 3200 2050
-U 5BF451D9
-F0 "PowerSupply" 50
-F1 "PowerSupply.sch" 50
+S 750  1200 3050 4450
+U 5BFBF74C
+F0 "AdvancedPowerSupply" 50
+F1 "AdvancedPowerSupply.sch" 50
 $EndSheet
 $EndSCHEMATC
