@@ -6,25 +6,24 @@
  */
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
 
-int main (void)
+int main(void)
 {
-	uint8_t		leds = 1;
+	DDRA=0xFF; /* PORTA as output */
+	ADMUX=0b00100000; /* External Vref 5v, shift to right, ADC0 channel */
+	ADCSRA=0b10001110; /* Enable ADC, 64 prescaler, Interrupt when measure is taken */
+	sei(); /* Enable interrupt subsystem */
+    while (1)
+    {
+		_delay_ms(250); /* Wait 250 ms */
+		ADCSRA|=(1<<ADSC); /* Enable measurement */
+    }
+}
 
-	/* set PORTB for output*/
-	DDRB = 0xFF;
-
-	while(1) {
-		for (leds = 1; leds <= (1 << 5); leds <<= 1) {
-			PORTB = leds;
-			_delay_ms(100);
-		}
-		for (leds = (1 << 4); leds >= 2; leds >>= 1) {
-			PORTB = leds;
-			_delay_ms(100);
-		}
-	}
-
-	return 0;
+ISR(ADC_vect)
+{
+	int battery_state = ADCH; /* Write measurement to variable */
+	PORTA = ADCH; /* Send measurement to the PORTA */
 }
