@@ -27,7 +27,7 @@ OPT_LEVEL = s
 #DEBUG_FORMAT = 
 # Place -D or -U options for C sources here
 C_OPTIONS = -DFCPU=$(F_CPU)UL
-# Place -D or -U options for C+ sources here
+# Place -D or -U options for C++ sources here
 #CPP_OPTIONS = -DFCPU=$(F_CPU)UL
 #-----------------------------------------------------#
 # C compiler flags
