@@ -4,7 +4,7 @@
 
 # This parameter sets AVR CPU model
 MCU = attiny44
-# This one sets Processor frequency you want MCU to run
+# This one sets Processor frequency you want MCU to run in HZ
 F_CPU = 10000000
 # Output file format (can be srec, ihex or binary
 OUTPUT_FORMAT = ihex
