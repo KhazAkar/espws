@@ -1,0 +1,56 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ADP2302ARDZ
+D Nonsynchronous Step-Down Regulator 2 Amp Vout Adjustable SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2302ARDZ-2.5
+D Nonsynchronous Step-Down Regulator 2 Amp Vout 2.5v SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2302ARDZ-3.3
+D Nonsynchronous Step-Down Regulator 2 Amp Vout 3.3v SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2302ARDZ-5.0
+D Nonsynchronous Step-Down Regulator 2 Amp Vout 5.0v SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2303ARDZ
+D Nonsynchronous Step-Down Regulator 3 Amp Vout Adjustable SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2303ARDZ-2.5
+D Nonsynchronous Step-Down Regulator 3 Amp Vout 2.5v SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2303ARDZ-3.3
+D Nonsynchronous Step-Down Regulator 3 Amp Vout 3.3v SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP ADP2303ARDZ-5.0
+D Nonsynchronous Step-Down Regulator 3 Amp Vout 5.0v SOIC-8
+K Step-Down Regulator
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2302_2303.pdf
+$ENDCMP
+#
+$CMP MCP73123
+D Lithium Iron Phosphate (LiFePO4) Battery ChargeManagement Controller with Input Overvoltage Protection
+K LiFePO4 Battery Management Controller Lithium Iron Phosphate
+$ENDCMP
+#
+#End Doc Library
