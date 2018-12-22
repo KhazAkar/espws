@@ -29,8 +29,7 @@ void mosfet_solar(uint8_t status_solar);
 void mcp_status_read(void);
 
 int adc_probe=0;
-int mcp_status=0;
-
+int mcp_status = 0;
 
 int main(void)
 {
@@ -47,7 +46,7 @@ int main(void)
 
 /* INTERRUPTS */
 
-ISR(ADC_vect) //ADC - 0x000D
+ISR(ADC_vect) /* ADC - 0x000D */
 {
 	if(adc_probe<=100) /* If battery voltage is less or equal to X volts... */
 	{
@@ -112,11 +111,11 @@ void mosfet_solar(uint8_t status_solar)
 {
 	if(status_solar==1)
 	{
-		PORTA|=(1<<PINA1); //write logic 1 to porta,1 mosfet is ON
+      PORTA |= (1 << PINA1); /* Write logic 1 to PORTA;1 MOSFET is ON */
 	}
 	if(status_solar==0)
 	{
-		PORTA|=~(1<<PINA1); //write logic 0 to porta,1 mosfet is OFF
+      PORTA |= ~(1 << PINA1); /* Write logic 0 to PORTA1; MOSFET is OFF */
 	}
 }
 
@@ -132,11 +131,11 @@ void mosfet_esp(uint8_t status_esp)
 {
 	if(status_esp==1)
 	{
-		PORTB|=(1<<PINB1); /* write logic 1 to porta,1 mosfet is ON */
+      PORTB |= (1 << PINB1); /* write logic 1 to PORTB;1 MOSFET is ON */
 	}
 	if(status_esp==0)
 	{
-		PORTB|=~(1<<PINB1); /* write logic 0 to porta,1 mosfet is OFF */
+      PORTB |= ~(1 << PINB1); /* write logic 0 to PORTB;1 MOSFET is OFF */
 	}
 }
 
@@ -151,11 +150,30 @@ void mosfet_sensor_air_direction(uint8_t status_sensors)
 {
 	if(status_sensors==1)
 	{
-		PORTB|=(1<<PINB2); /* Write logic 1 to PORTA,1 MOSFET is ON */
+      PORTB |= (1 << PINB2); /* Write logic 1 to PORTB;2 MOSFET is ON */
 	}
 	if(status_sensors==0)
 	{
-		PORTB|=~(1<<PINB2); /* Write logic 0 to PORTA,1 MOSFET is OFF */
+      PORTB |= ~(1 << PINB2); /* Write logic 0 to PORTB;2 MOSFET is OFF */
+	}
+}
+
+/*
+ * mosfet_sensor_temperature
+ * Turn ON or OFF MOSFET for air direction sensor
+ * todo: PWM mode
+ * mosfet_sensor_air_direction(PWM_sensors_value);
+ */
+
+void mosfet_sensor_temperature(uint8_t status_sensors)
+{
+	if(status_sensors==1)
+	{
+      PORTB |= (1 << PINB3); /* Write logic 1 to PORTB;3 MOSFET is ON */
+	}
+	if(status_sensors==0)
+	{
+      PORTB |= ~(1 << PINB3); /* Write logic 0 to PORTB;3 MOSFET is OFF */
 	}
 }
 
