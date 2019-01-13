@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 5
+Sheet 3 5
 Title ""
 Date ""
 Rev ""
@@ -17,12 +17,206 @@ $EndDescr
 $Comp
 L Connector_Generic:Conn_02x05_Top_Bottom J3
 U 1 1 5C10445A
-P 8400 2350
-F 0 "J3" H 8450 2767 50  0000 C CNN
-F 1 "PMS7003_SENSOR_IC" H 8450 2676 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD" H 8400 2350 50  0001 C CNN
-F 3 "~" H 8400 2350 50  0001 C CNN
-	1    8400 2350
+P 5450 1150
+F 0 "J3" H 5500 1567 50  0000 C CNN
+F 1 "PMS7003_SENSOR_IC" H 5500 1476 50  0000 C CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD" H 5450 1150 50  0001 C CNN
+F 3 "~" H 5450 1150 50  0001 C CNN
+	1    5450 1150
 	1    0    0    -1  
 $EndComp
+Text HLabel 4500 950  0    50   Input ~ 0
+SENSOR_AIR_QUALITY_VCC
+Wire Wire Line
+	4500 950  4750 950 
+Wire Wire Line
+	4750 950  4750 1050
+Wire Wire Line
+	4750 1050 5250 1050
+Connection ~ 4750 950 
+Wire Wire Line
+	4750 950  5250 950 
+$Comp
+L power:GND #PWR?
+U 1 1 5C3E7195
+P 5050 1200
+F 0 "#PWR?" H 5050 950 50  0001 C CNN
+F 1 "GND" V 5055 1072 50  0000 R CNN
+F 2 "" H 5050 1200 50  0001 C CNN
+F 3 "" H 5050 1200 50  0001 C CNN
+	1    5050 1200
+	0    1    1    0   
+$EndComp
+NoConn ~ 5750 950 
+NoConn ~ 5750 1150
+Text HLabel 5750 1050 2    50   Input ~ 0
+AIR_QUALITY_RX
+Text HLabel 5750 1250 2    50   Input ~ 0
+AIR_QUALITY_TX
+Text HLabel 6100 1350 2    50   Input ~ 0
+AIR_QUALITY_SET
+Text HLabel 4650 1350 0    50   Input ~ 0
+AIR_QUALITY_RESET
+$Comp
+L Device:R R?
+U 1 1 5C3E8589
+P 5600 2500
+F 0 "R?" H 5670 2546 50  0000 L CNN
+F 1 "2k" H 5670 2455 50  0000 L CNN
+F 2 "" V 5530 2500 50  0001 C CNN
+F 3 "~" H 5600 2500 50  0001 C CNN
+	1    5600 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C3E85A5
+P 5600 2900
+F 0 "R?" H 5670 2946 50  0000 L CNN
+F 1 "1k" H 5670 2855 50  0000 L CNN
+F 2 "" V 5530 2900 50  0001 C CNN
+F 3 "~" H 5600 2900 50  0001 C CNN
+	1    5600 2900
+	1    0    0    -1  
+$EndComp
+Text HLabel 5400 2200 0    50   Input ~ 0
+SENSOR_AIR_QUALITY_VCC
+Wire Wire Line
+	5400 2200 5600 2200
+Wire Wire Line
+	5600 2200 5600 2350
+Wire Wire Line
+	5600 2650 5600 2700
+$Comp
+L power:GND #PWR?
+U 1 1 5C3E86F3
+P 5600 3200
+F 0 "#PWR?" H 5600 2950 50  0001 C CNN
+F 1 "GND" H 5605 3027 50  0000 C CNN
+F 2 "" H 5600 3200 50  0001 C CNN
+F 3 "" H 5600 3200 50  0001 C CNN
+	1    5600 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 3200 5600 3050
+Text GLabel 5800 2700 2    50   Input ~ 0
+AIR_QUALITY_3V3
+Wire Wire Line
+	5600 2700 5800 2700
+Connection ~ 5600 2700
+Wire Wire Line
+	5600 2700 5600 2750
+$Comp
+L Device:R R?
+U 1 1 5C3E8EE3
+P 5900 1500
+F 0 "R?" H 5970 1546 50  0000 L CNN
+F 1 "10k" H 5970 1455 50  0000 L CNN
+F 2 "" V 5830 1500 50  0001 C CNN
+F 3 "~" H 5900 1500 50  0001 C CNN
+	1    5900 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C3E8F1B
+P 4950 1550
+F 0 "R?" H 5020 1596 50  0000 L CNN
+F 1 "10k" H 5020 1505 50  0000 L CNN
+F 2 "" V 4880 1550 50  0001 C CNN
+F 3 "~" H 4950 1550 50  0001 C CNN
+	1    4950 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 1350 5900 1350
+Connection ~ 5900 1350
+Wire Wire Line
+	5900 1350 6100 1350
+Wire Wire Line
+	5900 1650 5900 1750
+Wire Wire Line
+	5250 1150 5150 1150
+Wire Wire Line
+	5150 1150 5150 1200
+Wire Wire Line
+	5150 1200 5050 1200
+Wire Wire Line
+	5150 1200 5150 1250
+Wire Wire Line
+	5150 1250 5250 1250
+Connection ~ 5150 1200
+Text GLabel 4650 1750 0    50   Input ~ 0
+AIR_QUALITY_3V3
+Wire Wire Line
+	4650 1750 4950 1750
+Wire Wire Line
+	4950 1750 4950 1700
+Wire Wire Line
+	4650 1350 4950 1350
+Wire Wire Line
+	4950 1400 4950 1350
+Connection ~ 4950 1350
+Wire Wire Line
+	4950 1350 5250 1350
+Wire Notes Line
+	3300 3500 6800 3500
+Wire Notes Line
+	3300 650  6800 650 
+Wire Notes Line
+	3300 650  3300 3500
+Wire Notes Line
+	6800 650  6800 3500
+Text Notes 3350 3450 0    50   ~ 0
+Air quality interconnection
+$Comp
+L Connector_Generic:Conn_01x04 J?
+U 1 1 5C3EBF0A
+P 5550 4350
+F 0 "J?" H 5630 4342 50  0000 L CNN
+F 1 "BME280" H 5630 4251 50  0000 L CNN
+F 2 "" H 5550 4350 50  0001 C CNN
+F 3 "~" H 5550 4350 50  0001 C CNN
+	1    5550 4350
+	1    0    0    -1  
+$EndComp
+Text HLabel 5200 4250 0    50   Input ~ 0
+SENSOR_BME280_VCC
+Wire Wire Line
+	5200 4250 5350 4250
+$Comp
+L power:GND #PWR?
+U 1 1 5C3EC555
+P 5200 4350
+F 0 "#PWR?" H 5200 4100 50  0001 C CNN
+F 1 "GND" V 5205 4222 50  0000 R CNN
+F 2 "" H 5200 4350 50  0001 C CNN
+F 3 "" H 5200 4350 50  0001 C CNN
+	1    5200 4350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5200 4350 5350 4350
+Text HLabel 5200 4450 0    50   Input ~ 0
+BME280_SCL
+Text HLabel 5200 4550 0    50   Input ~ 0
+BME280_SDA
+Wire Wire Line
+	5200 4450 5350 4450
+Wire Wire Line
+	5350 4550 5200 4550
+Wire Notes Line
+	4250 4100 4250 4700
+Wire Notes Line
+	4250 4700 6000 4700
+Wire Notes Line
+	6000 4700 6000 4100
+Wire Notes Line
+	6000 4100 4250 4100
+Text Notes 4250 4800 0    50   ~ 0
+BME280 Interconnection
+Wire Wire Line
+	4950 1750 5900 1750
+Connection ~ 4950 1750
 $EndSCHEMATC

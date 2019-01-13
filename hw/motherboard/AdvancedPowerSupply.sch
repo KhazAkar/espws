@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 5 5
+Sheet 4 5
 Title "Advanced Power Supply"
 Date "2018-12-30"
 Rev "1"
@@ -765,7 +765,7 @@ $EndComp
 Wire Wire Line
 	9550 2600 9550 2350
 Text GLabel 10100 2800 2    50   Input ~ 0
-SENSOR_RAINMETER_EN
+ESP_VCC_EN
 Text GLabel 10100 2900 2    50   Input ~ 0
 SENSOR_BME280_EN
 Text GLabel 10100 3000 2    50   Input ~ 0
@@ -1159,7 +1159,7 @@ Connection ~ 8450 5800
 Wire Wire Line
 	8450 5800 8850 5800
 Text GLabel 8850 6300 3    50   Input ~ 0
-SENSOR_RAINMETER_PG
+ESP_VCC_PG
 $Comp
 L power:GND #PWR0111
 U 1 1 5C4E8ECA
@@ -1180,8 +1180,6 @@ Wire Wire Line
 	8400 2700 8500 2700
 Wire Wire Line
 	8300 3200 9250 3200
-Text GLabel 10100 3200 2    50   Input ~ 0
-SENSOR_RAINMETER_PG
 Text GLabel 10100 3300 2    50   Input ~ 0
 SENSOR_BME280_PG
 Text GLabel 10100 3400 2    50   Input ~ 0
@@ -2032,7 +2030,7 @@ $EndComp
 Wire Wire Line
 	8050 1750 8150 1750
 Text HLabel 8850 5650 0    50   Input ~ 0
-SENSOR_RAINMETER_VCC
+ESP_VCC
 Wire Wire Line
 	8850 5800 8850 5650
 Text HLabel 8850 8100 0    50   Input ~ 0
@@ -2054,4 +2052,14 @@ Wire Wire Line
 Connection ~ 7700 3700
 Wire Wire Line
 	7700 3700 7700 3600
+Text GLabel 10100 3200 2    50   Input ~ 0
+ESP_VCC_PG
+Text GLabel 5850 5900 0    50   Input ~ 0
+ESP_VCC_EN
+Text GLabel 11350 5900 0    50   Input ~ 0
+SENSOR_BME280_EN
+Text GLabel 11350 8450 0    50   Input ~ 0
+SENSOR_AIR_QUALITY_EN
+Text GLabel 5850 8350 0    50   Input ~ 0
+SENSOR_WIND_DIR_EN
 $EndSCHEMATC
