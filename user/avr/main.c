@@ -188,4 +188,3 @@ void mcp_status_read(void)
 	/* TODO: write response to every PINA,2 logic state */
 }
 
-

@@ -1,5 +1,10 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 74AHC595
+D The 74AHC595; 74AHCT595 are 8-stage serial shift registers with a storage register and 3-state outputs.
+K 74AHC595 74AHCT595 shift register
+$ENDCMP
+#
 $CMP ADP2302ARDZ
 D Nonsynchronous Step-Down Regulator 2 Amp Vout Adjustable SOIC-8
 K Step-Down Regulator
