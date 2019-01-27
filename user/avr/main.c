@@ -5,7 +5,7 @@
  *      Author: khazakar
  */
 
-#define F_CPU 1000000UL /* Define CPU speed */
+#define F_CPU 800000UL /* Define CPU speed */
 
 #include <avr/io.h>
 #include <util/delay.h> /* For delay */
