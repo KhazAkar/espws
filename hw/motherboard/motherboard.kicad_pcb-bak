@@ -15,13 +15,9 @@
     (1 GND power)
     (2 PWR power)
     (31 SIG2 signal)
-    (32 B.Adhes user)
     (33 F.Adhes user)
-    (34 B.Paste user)
     (35 F.Paste user)
-    (36 B.SilkS user)
     (37 F.SilkS user)
-    (38 B.Mask user)
     (39 F.Mask user)
     (40 Dwgs.User user)
     (41 Cmts.User user)
@@ -305,7 +301,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684AD5)
-    (at 256.912001 51.019001)
+    (at -22.614999 64.735001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B1982)
@@ -341,7 +337,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684AE6)
-    (at 262.022001 55.399001)
+    (at -17.504999 69.115001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C6D0C95)
@@ -377,7 +373,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684AF7)
-    (at 240.412001 78.639001)
+    (at -39.114999 92.355001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B1989)
@@ -413,7 +409,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B08)
-    (at 262.022001 56.749001)
+    (at -17.504999 70.465001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C5E5F89)
@@ -449,7 +445,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B19)
-    (at 254.332001 64.229001)
+    (at -25.194999 77.945001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C6D0D1B)
@@ -485,7 +481,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B2A)
-    (at 241.202001 76.559001)
+    (at -38.324999 90.275001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B1973)
@@ -521,7 +517,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B3B)
-    (at 248.772001 70.349001)
+    (at -30.754999 84.065001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C6BAF21)
@@ -557,7 +553,7 @@
   )
 
   (module Capacitors_SMD:CP_Elec_5x5.3 (layer SIG1) (tedit 58AA8A8F) (tstamp 5C684B57)
-    (at 227.662001 55.029001)
+    (at -51.864999 68.745001)
     (descr "SMT capacitor, aluminium electrolytic, 5x5.3")
     (path /5C5D479F)
     (attr smd)
@@ -607,7 +603,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B68)
-    (at 245.162001 73.259001)
+    (at -34.364999 86.975001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B19C4)
@@ -643,7 +639,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B79)
-    (at 245.122001 71.909001)
+    (at -34.404999 85.625001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7194FD)
@@ -679,7 +675,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B8A)
-    (at 237.622001 80.369001)
+    (at -41.904999 94.085001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C5EA42E)
@@ -715,7 +711,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684B9B)
-    (at 261.022001 58.099001)
+    (at -18.504999 71.815001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B19D7)
@@ -751,7 +747,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684BAC)
-    (at 237.622001 81.719001)
+    (at -41.904999 95.435001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C784132)
@@ -787,7 +783,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684BBD)
-    (at 258.292001 61.529001)
+    (at -21.234999 75.245001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B19E0)
@@ -823,7 +819,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684BCE)
-    (at 245.162001 74.609001)
+    (at -34.364999 88.325001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C789D58)
@@ -859,7 +855,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684BDF)
-    (at 252.832001 66.779001)
+    (at -26.694999 80.495001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7B19E7)
@@ -895,7 +891,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684BF0)
-    (at 254.332001 62.879001)
+    (at -25.194999 76.595001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C78F769)
@@ -931,7 +927,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C01)
-    (at 233.972001 81.099001)
+    (at -45.554999 94.815001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C5D6524)
@@ -967,7 +963,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C12)
-    (at 233.972001 83.799001)
+    (at -45.554999 97.515001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC797)
@@ -1003,7 +999,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C23)
-    (at 248.772001 68.999001)
+    (at -30.754999 82.715001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC6DA)
@@ -1039,7 +1035,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C34)
-    (at 249.182001 66.779001)
+    (at -30.344999 80.495001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C5DC4CC)
@@ -1075,7 +1071,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C45)
-    (at 233.972001 82.449001)
+    (at -45.554999 96.165001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC79E)
@@ -1111,7 +1107,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C56)
-    (at 241.512001 73.859001)
+    (at -38.014999 87.575001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC6E1)
@@ -1147,7 +1143,7 @@
   )
 
   (module Capacitors_SMD:CP_Elec_5x5.3 (layer SIG1) (tedit 58AA8A8F) (tstamp 5C684C72)
-    (at 211.462001 67.429001)
+    (at -68.064999 81.145001)
     (descr "SMT capacitor, aluminium electrolytic, 5x5.3")
     (path /5C5D8031)
     (attr smd)
@@ -1197,7 +1193,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C83)
-    (at 254.642001 61.529001)
+    (at -24.884999 75.245001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC788)
@@ -1233,7 +1229,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684C94)
-    (at 253.722001 58.829001)
+    (at -25.804999 72.545001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC6CB)
@@ -1269,7 +1265,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684CA5)
-    (at 241.512001 75.209001)
+    (at -38.014999 88.925001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC7D9)
@@ -1305,7 +1301,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684CB6)
-    (at 245.122001 70.559001)
+    (at -34.404999 84.275001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC71C)
@@ -1341,7 +1337,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684CC7)
-    (at 250.682001 65.429001)
+    (at -28.844999 79.145001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC7EC)
@@ -1377,7 +1373,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684CD8)
-    (at 258.372001 56.749001)
+    (at -21.154999 70.465001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC72F)
@@ -1413,7 +1409,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684CE9)
-    (at 250.682001 64.079001)
+    (at -28.844999 77.795001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC7F5)
@@ -1449,7 +1445,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684CFA)
-    (at 237.552001 77.289001)
+    (at -41.974999 91.005001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC738)
@@ -1485,7 +1481,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D0B)
-    (at 257.372001 58.829001)
+    (at -22.154999 72.545001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC7FC)
@@ -1521,7 +1517,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D1C)
-    (at 236.762001 79.019001)
+    (at -42.764999 92.735001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C7BC73F)
@@ -1557,7 +1553,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D2D)
-    (at 254.642001 60.179001)
+    (at -24.884999 73.895001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C9A9D81)
@@ -1593,7 +1589,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D3E)
-    (at 258.292001 60.179001)
+    (at -21.234999 73.895001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C9AA140)
@@ -1629,7 +1625,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D4F)
-    (at 230.012001 84.059001)
+    (at -49.514999 97.775001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5D280906)
@@ -1665,7 +1661,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D60)
-    (at 258.372001 55.399001)
+    (at -21.154999 69.115001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5CED2278)
@@ -1701,7 +1697,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D71)
-    (at 250.682001 62.729001)
+    (at -28.844999 76.445001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5E589235)
@@ -1737,7 +1733,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D82)
-    (at 237.552001 75.939001)
+    (at -41.974999 89.655001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5D3FA813)
@@ -1773,7 +1769,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684D93)
-    (at 240.572001 72.509001)
+    (at -38.954999 86.225001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5D20E085)
@@ -1809,7 +1805,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684DA4)
-    (at 229.662001 51.439001)
+    (at -49.864999 65.155001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5CC36B60)
@@ -1845,7 +1841,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684DB5)
-    (at 245.122001 69.209001)
+    (at -34.404999 82.925001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5D3FA94D)
@@ -1881,7 +1877,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684DC6)
-    (at 260.562001 51.209001)
+    (at -18.964999 64.925001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5CED24A6)
@@ -1917,7 +1913,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684DD7)
-    (at 260.072001 52.559001)
+    (at -19.454999 66.275001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5CC36C96)
@@ -1953,7 +1949,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684DE8)
-    (at 262.112001 44.189001)
+    (at -17.414999 57.905001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C9C16D7)
@@ -1989,7 +1985,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684DF9)
-    (at 262.112001 42.839001)
+    (at -17.414999 56.555001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5C9C17A5)
@@ -2025,7 +2021,7 @@
   )
 
   (module Capacitors_SMD:CP_Elec_5x5.3 (layer SIG1) (tedit 58AA8A8F) (tstamp 5C684E15)
-    (at 219.412001 64.379001)
+    (at -60.114999 78.095001)
     (descr "SMT capacitor, aluminium electrolytic, 5x5.3")
     (path /5CD85447)
     (attr smd)
@@ -2075,7 +2071,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684E26)
-    (at 253.612001 49.039001)
+    (at -25.914999 62.755001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5CD4B8C6)
@@ -2111,7 +2107,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684E37)
-    (at 209.562001 84.169001)
+    (at -69.964999 97.885001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5D0325B3)
@@ -2147,7 +2143,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684E48)
-    (at 205.912001 84.169001)
+    (at -73.614999 97.885001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5CCD7959)
@@ -2183,7 +2179,7 @@
   )
 
   (module Capacitors_SMD:C_0603_HandSoldering (layer SIG1) (tedit 58AA848B) (tstamp 5C684E59)
-    (at 229.662001 50.089001)
+    (at -49.864999 63.805001)
     (descr "Capacitor SMD 0603, hand soldering")
     (tags "capacitor 0603")
     (path /5D0B782D)
@@ -2219,7 +2215,7 @@
   )
 
   (module Diodes_SMD:D_SMB_Handsoldering (layer SIG1) (tedit 590B3D55) (tstamp 5C684E71)
-    (at 192.812001 81.869001)
+    (at -86.714999 95.585001)
     (descr "Diode SMB (DO-214AA) Handsoldering")
     (tags "Diode SMB (DO-214AA) Handsoldering")
     (path /5C5D68EA)
@@ -2262,7 +2258,7 @@
   )
 
   (module Diodes_SMD:D_SOD-323_HandSoldering (layer SIG1) (tedit 58641869) (tstamp 5C684E89)
-    (at 250.562001 56.639001)
+    (at -28.964999 70.355001)
     (descr SOD-323)
     (tags SOD-323)
     (path /5C918DED)
@@ -2305,7 +2301,7 @@
   )
 
   (module Diodes_SMD:D_SOD-323_HandSoldering (layer SIG1) (tedit 58641869) (tstamp 5C684EA1)
-    (at 250.562001 54.689001)
+    (at -28.964999 68.405001)
     (descr SOD-323)
     (tags SOD-323)
     (path /5C918ACA)
@@ -2348,7 +2344,7 @@
   )
 
   (module Diodes_SMD:D_SOD-323_HandSoldering (layer SIG1) (tedit 58641869) (tstamp 5C684EB9)
-    (at 237.312001 69.849001)
+    (at -42.214999 83.565001)
     (descr SOD-323)
     (tags SOD-323)
     (path /5C918BDC)
@@ -2391,7 +2387,7 @@
   )
 
   (module Diodes_SMD:D_SOD-323_HandSoldering (layer SIG1) (tedit 58641869) (tstamp 5C684ED1)
-    (at 252.262001 52.739001)
+    (at -27.264999 66.455001)
     (descr SOD-323)
     (tags SOD-323)
     (path /5C918C90)
@@ -2434,7 +2430,7 @@
   )
 
   (module Inductors_SMD:L_0603_HandSoldering (layer SIG1) (tedit 58307AEF) (tstamp 5C68906E)
-    (at 225.412001 66.169001)
+    (at -54.114999 79.885001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CC0AE3C)
@@ -2469,8 +2465,8 @@
     )
   )
 
-  (module Mounting_Holes:MountingHole_3.5mm (layer SIG1) (tedit 56D1B4CB) (tstamp 5C68A6AA)
-    (at 77.216 21.463)
+  (module Mounting_Holes:MountingHole_3.5mm (layer SIG1) (tedit 56D1B4CB) (tstamp 5C684EEA)
+    (at 77.216 50.8)
     (descr "Mounting Hole 3.5mm, no annular")
     (tags "mounting hole 3.5mm no annular")
     (path /5CC45CFF)
@@ -2490,7 +2486,7 @@
   )
 
   (module Mounting_Holes:MountingHole_3.5mm (layer SIG1) (tedit 56D1B4CB) (tstamp 5C684EF2)
-    (at 169.164 21.463)
+    (at 169.164 50.8)
     (descr "Mounting Hole 3.5mm, no annular")
     (tags "mounting hole 3.5mm no annular")
     (path /5E3900B5)
@@ -2550,7 +2546,7 @@
   )
 
   (module TerminalBlock_RND:TerminalBlock_RND_205-00001_Pitch5.00mm (layer SIG1) (tedit 59E50E05) (tstamp 5C684F46)
-    (at 96.012 22.479 180)
+    (at 96.012 51.816 180)
     (descr "terminal block RND 205-00001, 2 pins, pitch 05mm, size 10.0x9mm^2, drill diamater 1.3mm, pad diameter 2.5mm, see http://cdn-reichelt.de/documents/datenblatt/C151/RND_205-00001_DB_EN.pdf")
     (tags "THT terminal block RND 205-00001 pitch 05mm size 10.0x9mm^2 drill 1.3mm pad 2.5mm")
     (path /5C5D3C71)
@@ -2612,14 +2608,14 @@
   )
 
   (module Pin_Headers:Pin_Header_Straight_2x05_Pitch1.27mm (layer SIG1) (tedit 59650536) (tstamp 5C684F6B)
-    (at 170.561 69.088)
+    (at -38.714999 64.605001)
     (descr "Through hole straight pin header, 2x05, 1.27mm pitch, double rows")
     (tags "Through hole pin header THT 2x05 1.27mm double row")
     (path /5E977E0A)
     (fp_text reference J2 (at 0.635 -1.695) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value PMS7003 (at -0.508 6.985) (layer F.Fab)
+    (fp_text value PMS7003 (at 0.635 6.775) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -0.2175 -0.635) (end 2.34 -0.635) (layer F.Fab) (width 0.1))
@@ -2673,7 +2669,7 @@
   )
 
   (module Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm (layer SIG1) (tedit 59650532) (tstamp 5C684F81)
-    (at 75.311 91.821)
+    (at 75.057 99.695)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
     (path /5C5E0588)
@@ -2713,7 +2709,7 @@
   )
 
   (module Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm (layer SIG1) (tedit 59650532) (tstamp 5C684F99)
-    (at 171.45 93.853)
+    (at -77.664999 69.935001)
     (descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x04 2.54mm single row")
     (path /5F02D079)
@@ -2756,15 +2752,15 @@
     )
   )
 
-  (module Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm (layer SIG1) (tedit 59650532) (tstamp 5C68A78B)
-    (at 171.323 43.561)
+  (module Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm (layer SIG1) (tedit 59650532) (tstamp 5C684FB1)
+    (at -72.564999 65.055001)
     (descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x04 2.54mm single row")
     (path /5E6F0341)
     (fp_text reference J5 (at 0 -2.33) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value BME280 (at -1.016 10.033) (layer F.Fab)
+    (fp_text value BME280 (at 0 9.95) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -0.635 -1.27) (end 1.27 -1.27) (layer F.Fab) (width 0.1))
@@ -2801,7 +2797,7 @@
   )
 
   (module Connectors_Molex:Molex_SMA_Jack_Edge_Mount (layer SIG1) (tedit 587D2992) (tstamp 5C688A16)
-    (at 122.428 23.495 270)
+    (at 122.428 52.832 270)
     (descr "Molex SMA Jack, Edge Mount, http://www.molex.com/pdm_docs/sd/732511150_sd.pdf")
     (tags "sma edge")
     (path /5C917363)
@@ -2864,7 +2860,7 @@
   )
 
   (module Connectors_USB:USB_C_Receptacle_Amphenol_12401610E4-2A (layer SIG1) (tedit 5923787B) (tstamp 5C688CD3)
-    (at 150.368 21.463 180)
+    (at 150.368 50.8 180)
     (descr "USB TYPE C, RA RCPT PCB, SMT, https://www.amphenolcanada.com/StockAvailabilityPrice.aspx?From=&PartNum=12401610E4%7e2A")
     (tags "USB C Type-C Receptacle SMD")
     (path /5C8B83D2)
@@ -2875,7 +2871,7 @@
     (fp_text value USB_ESP_ISP (at 0 0 180) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text user %R (at 0.127 2.159 180) (layer F.Fab)
+    (fp_text user %R (at 250.444 -33.528 180) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.1)))
     )
     (fp_line (start -5.39 5.73) (end -5.39 -5.87) (layer F.CrtYd) (width 0.05))
@@ -2944,14 +2940,14 @@
   )
 
   (module Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm (layer SIG1) (tedit 59650532) (tstamp 5C68501B)
-    (at 139.7 21.844 180)
+    (at -25.914999 57.705001)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
     (path /5D9FED5B)
-    (fp_text reference JP1 (at 0 -2.33 180) (layer F.SilkS)
+    (fp_text reference JP1 (at 0 -2.33) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value GPIO0_PD (at 0 -3.937 180) (layer F.Fab)
+    (fp_text value GPIO0_PD (at 0 4.87) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -0.635 -1.27) (end 1.27 -1.27) (layer F.Fab) (width 0.1))
@@ -2969,12 +2965,12 @@
     (fp_line (start -1.8 4.35) (end 1.8 4.35) (layer F.CrtYd) (width 0.05))
     (fp_line (start 1.8 4.35) (end 1.8 -1.8) (layer F.CrtYd) (width 0.05))
     (fp_line (start 1.8 -1.8) (end -1.8 -1.8) (layer F.CrtYd) (width 0.05))
-    (fp_text user %R (at 0 1.27 270) (layer F.Fab)
+    (fp_text user %R (at 0 1.27 90) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (pad 1 thru_hole rect (at 0 0 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
+    (pad 1 thru_hole rect (at 0 0) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 43 PRG))
-    (pad 2 thru_hole oval (at 0 2.54 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
+    (pad 2 thru_hole oval (at 0 2.54) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 1 GND))
     (model ${KISYS3DMOD}/Pin_Headers.3dshapes/Pin_Header_Straight_1x02_Pitch2.54mm.wrl
       (at (xyz 0 0 0))
@@ -2984,7 +2980,7 @@
   )
 
   (module Inductors_SMD:L_0805_HandSoldering (layer SIG1) (tedit 58307B90) (tstamp 5C68502C)
-    (at 257.862001 43.189001)
+    (at -21.664999 56.905001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C7B1952)
@@ -3020,7 +3016,7 @@
   )
 
   (module Inductors_SMD:L_0805_HandSoldering (layer SIG1) (tedit 58307B90) (tstamp 5C68503D)
-    (at 232.962001 66.749001)
+    (at -46.564999 80.465001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C6A837D)
@@ -3056,7 +3052,7 @@
   )
 
   (module Inductors_SMD:L_0805_HandSoldering (layer SIG1) (tedit 58307B90) (tstamp 5C68504E)
-    (at 246.112001 52.999001)
+    (at -33.414999 66.715001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C5D78C4)
@@ -3092,7 +3088,7 @@
   )
 
   (module Inductors_SMD:L_0805_HandSoldering (layer SIG1) (tedit 58307B90) (tstamp 5C68913A)
-    (at 240.612001 58.289001)
+    (at -38.914999 72.005001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C7BC767)
@@ -3128,7 +3124,7 @@
   )
 
   (module Inductors_SMD:L_0805_HandSoldering (layer SIG1) (tedit 58307B90) (tstamp 5C685070)
-    (at 252.662001 50.739001)
+    (at -26.864999 64.455001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C7BC6AA)
@@ -3164,7 +3160,7 @@
   )
 
   (module Inductors_SMD:L_0603_HandSoldering (layer SIG1) (tedit 58307AEF) (tstamp 5C685081)
-    (at 237.412001 66.399001)
+    (at -42.114999 80.115001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C9A9F36)
@@ -3200,7 +3196,7 @@
   )
 
   (module Inductors_SMD:L_0603_HandSoldering (layer SIG1) (tedit 58307AEF) (tstamp 5C685092)
-    (at 237.412001 68.049001)
+    (at -42.114999 81.765001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D3FAB18)
@@ -3236,7 +3232,7 @@
   )
 
   (module TO_SOT_Packages_SMD:SOT-23_Handsoldering (layer SIG1) (tedit 58CE4E7E) (tstamp 5C6850A7)
-    (at 217.542001 82.019001)
+    (at -61.984999 95.735001)
     (descr "SOT-23, Handsoldering")
     (tags SOT-23)
     (path /5C5D4008)
@@ -3277,7 +3273,7 @@
   )
 
   (module TO_SOT_Packages_SMD:SOT-323_SC-70_Handsoldering (layer SIG1) (tedit 58CE4E7F) (tstamp 5C6850BC)
-    (at 246.112001 55.349001)
+    (at -33.414999 69.065001)
     (descr "SOT-323, SC-70 Handsoldering")
     (tags "SOT-323 SC-70 Handsoldering")
     (path /5D434803)
@@ -3318,7 +3314,7 @@
   )
 
   (module TO_SOT_Packages_SMD:SOT-323_SC-70_Handsoldering (layer SIG1) (tedit 58CE4E7F) (tstamp 5C6850D1)
-    (at 225.092001 76.019001)
+    (at -54.434999 89.735001)
     (descr "SOT-323, SC-70 Handsoldering")
     (tags "SOT-323 SC-70 Handsoldering")
     (path /5D4349F9)
@@ -3359,7 +3355,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6850E2)
-    (at 246.882001 63.144001)
+    (at -32.644999 76.860001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5EE9321E)
@@ -3395,7 +3391,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6850F3)
-    (at 226.212001 83.314001)
+    (at -53.314999 97.030001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C5D40EB)
@@ -3431,7 +3427,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685104)
-    (at 232.962001 79.684001)
+    (at -46.564999 93.400001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5ED08320)
@@ -3467,7 +3463,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685115)
-    (at 254.572001 57.414001)
+    (at -24.954999 71.130001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5ED0846A)
@@ -3503,7 +3499,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685126)
-    (at 246.882001 64.624001)
+    (at -32.644999 78.340001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C5E33A8)
@@ -3539,7 +3535,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685137)
-    (at 261.672001 46.834001)
+    (at -17.854999 60.550001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5EF3446D)
@@ -3575,7 +3571,7 @@
   )
 
   (module Resistors_SMD:R_1206_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685148)
-    (at 200.812001 83.179001)
+    (at -78.714999 96.895001)
     (descr "Resistor SMD 1206, hand soldering")
     (tags "resistor 1206")
     (path /5C7B19A0)
@@ -3611,7 +3607,7 @@
   )
 
   (module Resistors_SMD:R_1206_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685159)
-    (at 246.962001 50.849001)
+    (at -32.564999 64.565001)
     (descr "Resistor SMD 1206, hand soldering")
     (tags "resistor 1206")
     (path /5C6EC00C)
@@ -3647,7 +3643,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68516A)
-    (at 245.382001 67.584001)
+    (at -34.144999 81.300001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C7B19A9)
@@ -3683,7 +3679,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68517B)
-    (at 249.922001 58.354001)
+    (at -29.604999 72.070001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C6F5AFA)
@@ -3719,7 +3715,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68518C)
-    (at 254.572001 54.454001)
+    (at -24.954999 68.170001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C5ED3BA)
@@ -3755,7 +3751,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68519D)
-    (at 236.772001 71.564001)
+    (at -42.754999 85.280001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C5D4BC5)
@@ -3791,7 +3787,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6851AE)
-    (at 241.422001 66.314001)
+    (at -38.104999 80.030001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C7B19BB)
@@ -3827,7 +3823,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6851BF)
-    (at 256.272001 52.504001)
+    (at -23.254999 66.220001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C709B94)
@@ -3863,7 +3859,7 @@
   )
 
   (module Resistors_SMD:R_1206_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6851D0)
-    (at 234.912001 58.399001)
+    (at -44.614999 72.115001)
     (descr "Resistor SMD 1206, hand soldering")
     (tags "resistor 1206")
     (path /5C7BC7B5)
@@ -3899,7 +3895,7 @@
   )
 
   (module Resistors_SMD:R_0805_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6851E1)
-    (at 232.912001 68.714001)
+    (at -46.614999 82.430001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C7BC6F8)
@@ -3935,7 +3931,7 @@
   )
 
   (module Resistors_SMD:R_0805_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6851F2)
-    (at 257.812001 45.154001)
+    (at -21.714999 58.870001)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5C7BC7BE)
@@ -3971,7 +3967,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685203)
-    (at 233.752001 74.644001)
+    (at -45.774999 88.360001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C7BC701)
@@ -4007,7 +4003,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685214)
-    (at 241.322001 69.614001)
+    (at -38.204999 83.330001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C7BC7D0)
@@ -4043,7 +4039,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685225)
-    (at 246.882001 61.664001)
+    (at -32.644999 75.380001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C7BC713)
@@ -4079,7 +4075,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685236)
-    (at 261.672001 48.314001)
+    (at -17.854999 62.030001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CAABB54)
@@ -4115,7 +4111,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685247)
-    (at 236.772001 73.044001)
+    (at -42.754999 86.760001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C64EA23)
@@ -4151,7 +4147,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685258)
-    (at 254.572001 55.934001)
+    (at -24.954999 69.650001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C64EA9F)
@@ -4187,7 +4183,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685269)
-    (at 249.922001 59.834001)
+    (at -29.604999 73.550001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D332803)
@@ -4223,7 +4219,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68527A)
-    (at 250.842001 61.314001)
+    (at -28.684999 75.030001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D332A32)
@@ -4259,7 +4255,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68528B)
-    (at 245.382001 66.104001)
+    (at -34.144999 79.820001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D332946)
@@ -4294,7 +4290,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68529C)
-    (at 237.712001 74.524001)
+    (at -41.814999 88.240001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D459992)
@@ -4330,7 +4326,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6852AD)
-    (at 241.322001 71.094001)
+    (at -38.204999 84.810001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D459AE6)
@@ -4366,7 +4362,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6852BE)
-    (at 233.752001 77.604001)
+    (at -45.774999 91.320001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5DF9B74F)
@@ -4402,7 +4398,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6852CF)
-    (at 261.672001 49.794001)
+    (at -17.854999 63.510001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CEB21C1)
@@ -4438,7 +4434,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6852E0)
-    (at 233.752001 76.124001)
+    (at -45.774999 89.840001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5E46F1B8)
@@ -4474,7 +4470,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C6852F1)
-    (at 258.532001 53.984001)
+    (at -20.994999 67.700001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CAF8216)
@@ -4510,7 +4506,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685302)
-    (at 230.172001 81.164001)
+    (at -49.354999 94.880001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CAF8326)
@@ -4546,7 +4542,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685313)
-    (at 226.212001 81.834001)
+    (at -53.314999 95.550001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C4DBFF4)
@@ -4582,7 +4578,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685324)
-    (at 229.002001 79.684001)
+    (at -50.524999 93.400001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C4DC584)
@@ -4618,7 +4614,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685335)
-    (at 222.252001 83.314001)
+    (at -57.274999 97.030001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C4DC70A)
@@ -4654,7 +4650,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685346)
-    (at 222.252001 81.834001)
+    (at -57.274999 95.550001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C4DC711)
@@ -4690,7 +4686,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685357)
-    (at 242.922001 63.144001)
+    (at -36.604999 76.860001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C508CF3)
@@ -4726,7 +4722,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685368)
-    (at 242.922001 61.664001)
+    (at -36.604999 75.380001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5D592F26)
@@ -4762,7 +4758,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C685379)
-    (at 242.922001 64.624001)
+    (at -36.604999 78.340001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5C508DE9)
@@ -4798,7 +4794,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68538A)
-    (at 230.172001 82.644001)
+    (at -49.354999 96.360001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CD072DC)
@@ -4833,7 +4829,7 @@
   )
 
   (module Resistors_SMD:R_0603_HandSoldering (layer SIG1) (tedit 58E0A804) (tstamp 5C68539B)
-    (at 241.422001 67.794001)
+    (at -38.104999 81.510001)
     (descr "Resistor SMD 0603, hand soldering")
     (tags "resistor 0603")
     (path /5CD073FC)
@@ -4869,7 +4865,7 @@
   )
 
   (module Buttons_Switches_SMD:SW_DIP_x2_W8.61mm_Slide_LowProfile (layer SIG1) (tedit 59F458D2) (tstamp 5C6853C5)
-    (at 210.962001 45.839001)
+    (at -68.564999 59.555001)
     (descr "2x-dip-switch, Slide, row spacing 8.61 mm (338 mils), SMD, LowProfile")
     (tags "DIP Switch Slide 8.61mm 338mil SMD LowProfile")
     (path /5D4A54B1)
@@ -5219,7 +5215,7 @@
   )
 
   (module Housings_SOIC:SOIC-8-1EP_3.9x4.9mm_Pitch1.27mm (layer SIG1) (tedit 58CC8F64) (tstamp 5C68547B)
-    (at 219.212001 69.919001)
+    (at -60.314999 83.635001)
     (descr "8-Lead Thermally Enhanced Plastic Small Outline (SE) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5C5D4683)
@@ -5280,7 +5276,7 @@
   )
 
   (module Housings_SOIC:SOIC-14_3.9x8.7mm_Pitch1.27mm (layer SIG1) (tedit 58CC8F64) (tstamp 5C68549E)
-    (at 219.962001 56.889001)
+    (at -59.564999 70.605001)
     (descr "14-Lead Plastic Small Outline (SL) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5C6100DF)
@@ -5576,7 +5572,7 @@
   )
 
   (module Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm (layer SIG1) (tedit 58CC8F64) (tstamp 5C68553B)
-    (at 212.512001 54.789001)
+    (at -67.014999 68.505001)
     (descr "16-Lead Plastic Small Outline (SL) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5C6189F3)
@@ -5646,7 +5642,7 @@
   )
 
   (module Housings_SOIC:SOIC-20W_7.5x12.8mm_Pitch1.27mm (layer SIG1) (tedit 58CC8F64) (tstamp 5C685564)
-    (at 194.062001 61.169001)
+    (at -85.464999 74.885001)
     (descr "20-Lead Plastic Small Outline (SO) - Wide, 7.50 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5C8AE117)
@@ -5721,7 +5717,7 @@
   )
 
   (module Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm (layer SIG1) (tedit 58CC8F64) (tstamp 5C685589)
-    (at 203.762001 70.919001)
+    (at -75.764999 84.635001)
     (descr "16-Lead Plastic Small Outline (SL) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5CE58201)
@@ -5889,7 +5885,7 @@
   )
 
   (module TO_SOT_Packages_SMD:SOT-223-3_TabPin2 (layer SIG1) (tedit 58CE4E7E) (tstamp 5C6855D7)
-    (at 232.262001 45.789001)
+    (at -47.264999 59.505001)
     (descr "module CMS SOT223 4 pins")
     (tags "CMS SOT")
     (path /5D03214D)
@@ -5994,7 +5990,7 @@
   )
 
   (module Crystals:Crystal_SMD_0603-4pin_6.0x3.5mm_HandSoldering (layer SIG1) (tedit 58CD2E9C) (tstamp 5C685616)
-    (at 203.242001 79.119001)
+    (at -76.284999 92.835001)
     (descr "SMD Crystal SERIES SMD0603/4 http://www.petermann-technik.de/fileadmin/petermann/pdf/SMD0603-4.pdf, hand-soldering, 6.0x3.5mm^2 package")
     (tags "SMD SMT crystal hand-soldering")
     (path /5CA72518)
@@ -6047,7 +6043,7 @@
   )
 
   (module Crystals:Crystal_SMD_5032-2pin_5.0x3.2mm_HandSoldering (layer SIG1) (tedit 58CD2E9C) (tstamp 5C685631)
-    (at 208.312001 62.689001)
+    (at -71.214999 76.405001)
     (descr "SMD Crystal SERIES SMD2520/2 http://www.icbase.com/File/PDF/HKC/HKC00061008.pdf, hand-soldering, 5.0x3.2mm^2 package")
     (tags "SMD SMT crystal hand-soldering")
     (path /5CEB3889)
@@ -6092,9 +6088,9 @@
     )
   )
 
-  (gr_line (start 73.355 17.399) (end 173.355 17.399) (layer Edge.Cuts) (width 0.2))
-  (gr_line (start 73.355 117.399) (end 73.355 17.399) (layer Edge.Cuts) (width 0.2))
-  (gr_line (start 173.355 117.399) (end 73.355 117.399) (layer Edge.Cuts) (width 0.2))
-  (gr_line (start 173.355 17.399) (end 173.355 117.399) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 73.228 116.84) (end 173.228 116.84) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 73.228 46.84) (end 73.228 116.84) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 173.228 46.84) (end 73.228 46.84) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 173.228 116.84) (end 173.228 46.84) (layer Edge.Cuts) (width 0.2))
 
 )
