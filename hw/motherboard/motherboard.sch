@@ -4331,10 +4331,10 @@ Connection ~ 11150 2500
 Wire Wire Line
 	11150 2500 11650 2500
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP7
 U 1 1 5CB7ED34
 P 3350 12450
-F 0 "TP?" H 3400 12600 50  0000 L CNN
+F 0 "TP7" H 3400 12600 50  0000 L CNN
 F 1 "DUST_TX_TP" H 3400 12500 50  0000 L CNN
 F 2 "Connectors_TestPoints:Test_Point_Pad_d1.0mm" H 3550 12450 50  0001 C CNN
 F 3 "~" H 3550 12450 50  0001 C CNN
@@ -4342,10 +4342,10 @@ F 3 "~" H 3550 12450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP6
 U 1 1 5CB7ED3B
 P 3250 12450
-F 0 "TP?" H 2750 12600 50  0000 L CNN
+F 0 "TP6" H 2750 12600 50  0000 L CNN
 F 1 "DUST_RX_TP" H 2750 12500 50  0000 L CNN
 F 2 "Connectors_TestPoints:Test_Point_Pad_d1.0mm" H 3450 12450 50  0001 C CNN
 F 3 "~" H 3450 12450 50  0001 C CNN
