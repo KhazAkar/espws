@@ -28,7 +28,7 @@ void mosfet_sensor_air_direction(uint8_t status_sensors);
 void mosfet_solar(uint8_t status_solar);
 void mcp_status_read(void);
 
-int adc_probe=0;
+int adc_probe = 0;
 int mcp_status = 0;
 
 int main(void)
