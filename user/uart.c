@@ -24,9 +24,9 @@
 
 #include "ets_sys.h"
 #include "osapi.h"
-#include "driver/uart.h"
+#include "include/uart/uart.h"
 #include "osapi.h"
-#include "driver/uart_register.h"
+#include "include/uart/uart_register.h"
 #include "mem.h"
 #include "os_type.h"
 

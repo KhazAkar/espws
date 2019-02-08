@@ -9,7 +9,8 @@
 
 #include <avr/io.h>
 #include <util/delay.h> /* For delay */
-#include <avr/interrupt.h> /* For ADC, I2C etc. */
+#include <avr/interrupt.h> /* For ADC */
+#include <util/twi.h> /* For I2C interface */
 
 /*
  * TODO

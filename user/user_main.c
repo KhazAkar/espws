@@ -4,8 +4,10 @@
 #include <os_type.h>
 #include <osapi.h>
 
-/* ESP-12 modules have LED on GPIO2. Change to another GPIO
- for other boards. */
+/* I2C and UART Libraries */
+#include "include/i2c/i2c.h"
+#include "include/uart/uart.h"
+
 static const int pin = 2;
 static volatile os_timer_t some_timer;
 
@@ -13,8 +15,12 @@ void user_pre_init()
 {
 
 }
+void user_spi_flash_dio_to_qio_pre_init(void)
+{
 
-void some_timerfunc(void *arg)
+}
+
+void ICACHE_FLASH_ATTR some_timerfunc(void *arg)
 {
 	/* Do blinky stuff */
 	if (GPIO_REG_READ(GPIO_OUT_ADDRESS) & (1 << pin))
@@ -40,5 +46,5 @@ void ICACHE_FLASH_ATTR user_init()
 
 	/* setup timer (500ms, repeating) */
 	os_timer_setfn(&some_timer, (os_timer_func_t *) some_timerfunc, NULL);
-	os_timer_arm(&some_timer, 50, 1);
+	os_timer_arm(&some_timer, 500, 1);
 }

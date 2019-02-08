@@ -26,7 +26,7 @@
 #include "osapi.h"
 #include "gpio.h"
 
-#include "driver/i2c_master.h"
+#include "include/i2c/i2c.h"
 
 LOCAL uint8 m_nLastSDA;
 LOCAL uint8 m_nLastSCL;
