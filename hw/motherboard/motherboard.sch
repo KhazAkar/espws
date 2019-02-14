@@ -88,7 +88,7 @@ U 1 1 5D9FED5B
 P 12050 1050
 F 0 "JP1" H 12050 1285 50  0000 C CNN
 F 1 "Programming mode" H 12050 1194 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 12050 1050 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical_SMD_Pin1Left" H 12050 1050 50  0001 C CNN
 F 3 "~" H 12050 1050 50  0001 C CNN
 	1    12050 1050
 	-1   0    0    -1  
@@ -647,7 +647,7 @@ U 1 1 5E6F0341
 P 15550 7700
 F 0 "J7" H 15522 7673 50  0000 R CNN
 F 1 "BME280" H 15522 7582 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 15550 7700 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical_SMD_Pin1Left" H 15550 7700 50  0001 C CNN
 F 3 "~" H 15550 7700 50  0001 C CNN
 	1    15550 7700
 	-1   0    0    -1  
@@ -989,7 +989,7 @@ U 1 1 5CB39757
 P 12050 1600
 F 0 "JP2" H 12050 1864 50  0000 C CNN
 F 1 "Reset" H 12050 1773 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 12050 1600 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical_SMD_Pin1Left" H 12050 1600 50  0001 C CNN
 F 3 "~" H 12050 1600 50  0001 C CNN
 	1    12050 1600
 	1    0    0    -1  
@@ -1239,7 +1239,7 @@ U 1 1 5D4BEA49
 P 4250 950
 F 0 "SW1" H 4250 1235 50  0000 C CNN
 F 1 "Charge or power" H 4250 1144 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4250 950 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left" H 4250 950 50  0001 C CNN
 F 3 "" H 4250 950 50  0001 C CNN
 	1    4250 950 
 	1    0    0    -1  
