@@ -58,4 +58,10 @@ D Lithium Iron Phosphate (LiFePO4) Battery ChargeManagement Controller with Inp
 K LiFePO4 Battery Management Controller Lithium Iron Phosphate
 $ENDCMP
 #
+$CMP TPS62140A
+D Synchronous step-down DC-DC converter optimized for applications with high power density.
+K Buck DC-DC step-down 
+F http://www.ti.com/lit/ds/symlink/tps62140a.pdf
+$ENDCMP
+#
 #End Doc Library
