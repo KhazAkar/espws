@@ -73,7 +73,7 @@ U 1 1 5CC45CFF
 P 10200 11000
 F 0 "H1" H 10300 11046 50  0000 L CNN
 F 1 "MountingHole" H 10300 10955 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.5mm" H 10200 11000 50  0001 C CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 10200 11000 50  0001 C CNN
 F 3 "~" H 10200 11000 50  0001 C CNN
 	1    10200 11000
 	1    0    0    -1  
@@ -120,7 +120,7 @@ U 1 1 5E3900B5
 P 11150 11000
 F 0 "H2" H 11250 11046 50  0000 L CNN
 F 1 "MountingHole" H 11250 10955 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.5mm" H 11150 11000 50  0001 C CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 11150 11000 50  0001 C CNN
 F 3 "~" H 11150 11000 50  0001 C CNN
 	1    11150 11000
 	1    0    0    -1  
@@ -1238,7 +1238,7 @@ L Switch:SW_SPDT SW1
 U 1 1 5D4BEA49
 P 4250 950
 F 0 "SW1" H 4250 1235 50  0000 C CNN
-F 1 "Charge or power" H 4250 1144 50  0000 C CNN
+F 1 "Charge/Power" H 4250 1144 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left" H 4250 950 50  0001 C CNN
 F 3 "" H 4250 950 50  0001 C CNN
 	1    4250 950 
