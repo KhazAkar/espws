@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.2.5)  7 FEB 2019 22:09
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.2.5)  17 FEB 2019 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,7 +737,8 @@ LaTeX Font Warning: Font shape `TU/TimesNewRoman(0)/m/sc' undefined
 \tf@toc=\write3
 \openout3 = `thesis.toc'.
 
- [2] [3] (./thesis.aux)
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+(./thesis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -745,10 +746,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  18383 strings out of 492933
  404977 string characters out of 6133146
- 577095 words of memory out of 5000000
+ 578095 words of memory out of 5000000
  22276 multiletter control sequences out of 15000+600000
  537303 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  46i,6n,67p,9104b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (3 pages).
+Output written on thesis.pdf (14 pages).

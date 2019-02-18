@@ -34,7 +34,7 @@ user_main-0x00000.bin: user_main
 	$(ESPTOOL) elf2image user_main
 
 user_main: 
-	$(CC) $(CFLAGS) $(LDLIBS) $(LDFLAGS) user_main.c i2c.c uart.c -o user_main
+	$(CC) $(CFLAGS) $(LDLIBS) $(LDFLAGS) user_main.c i2c.c uart.c bme280.c -o user_main
 	size -d user_main
 
 flash: user_main-0x00000.bin
