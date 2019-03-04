@@ -26,7 +26,7 @@
 #include "osapi.h"
 #include "gpio.h"
 
-#include "include/i2c/i2c.h"
+#include "include/i2c/i2c_master.h"
 
 LOCAL uint8 m_nLastSDA;
 LOCAL uint8 m_nLastSCL;
@@ -240,8 +240,7 @@ i2c_master_checkAck(void)
 * Returns      : NONE
 *******************************************************************************/
 void ICACHE_FLASH_ATTR
-i2c_master_send_ack(int command)
-
+i2c_master_send_ack(void)
 {
     i2c_master_setAck(0x0);
 }

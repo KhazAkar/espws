@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ss360pt)(type Legacy)(uri /home/khazakar/Programowanie/espws/hw/anemometer/lib/ss360pt.lib)(options "")(descr ""))
+)
