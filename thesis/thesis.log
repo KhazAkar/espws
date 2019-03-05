@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.2.5)  17 FEB 2019 20:18
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.5)  5 MAR 2019 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -300,10 +300,10 @@ Class scrartcl Warning: Activating an ugly workaround for a missing
 (/usr/local/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2019-01-28 L3 programming layer (loader) 
+Package: expl3 2019-02-15 L3 programming layer (loader) 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2019-01-28 L3 programming layer (code)
+Package: expl3 2019-02-15 L3 programming layer (code)
 \c_max_int=\count104
 \l_tmpa_int=\count105
 \l_tmpb_int=\count106
@@ -448,7 +448,7 @@ Package: expl3 2019-01-28 L3 programming layer (code)
 \l__coffin_scaled_width_dim=\dimen158
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
-File: l3xdvipdfmx.def 2019-01-28 v L3 Experimental driver: xdvipdfmx
+File: l3xdvipdfmx.def 2019-02-15 v L3 Experimental driver: xdvipdfmx
 \g__driver_image_int=\count183
 \g__driver_pdf_object_int=\count184
 ))
@@ -459,10 +459,10 @@ Package: xparse 2018-10-17 L3 Experimental document command parser
 \l__xparse_mandatory_args_int=\count188
 \l__xparse_v_nesting_int=\count189
 )
-Package: fontspec 2019/01/25 v2.7a Font selection for XeLaTeX and LuaLaTeX
+Package: fontspec 2019/02/12 v2.7b Font selection for XeLaTeX and LuaLaTeX
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2019/01/25 v2.7a Font selection for XeLaTeX and LuaLaTe
+Package: fontspec-xetex 2019/02/12 v2.7b Font selection for XeLaTeX and LuaLaTe
 X
 \l__fontspec_script_int=\count190
 \l__fontspec_language_int=\count191
@@ -487,12 +487,12 @@ File: tuenc.def 2018/08/11 v2.0j Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec.cfg)
-LaTeX Info: Redefining \itshape on input line 4017.
-LaTeX Info: Redefining \slshape on input line 4022.
-LaTeX Info: Redefining \scshape on input line 4027.
-LaTeX Info: Redefining \upshape on input line 4032.
-LaTeX Info: Redefining \em on input line 4062.
-LaTeX Info: Redefining \emph on input line 4087.
+LaTeX Info: Redefining \itshape on input line 4044.
+LaTeX Info: Redefining \slshape on input line 4049.
+LaTeX Info: Redefining \scshape on input line 4054.
+LaTeX Info: Redefining \upshape on input line 4059.
+LaTeX Info: Redefining \em on input line 4089.
+LaTeX Info: Redefining \emph on input line 4114.
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
@@ -744,10 +744,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 18383 strings out of 492933
- 404977 string characters out of 6133146
- 578095 words of memory out of 5000000
- 22276 multiletter control sequences out of 15000+600000
+ 18429 strings out of 492933
+ 406057 string characters out of 6133146
+ 578582 words of memory out of 5000000
+ 22322 multiletter control sequences out of 15000+600000
  537303 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  46i,6n,67p,9104b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
