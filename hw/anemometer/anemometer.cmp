@@ -1,0 +1,75 @@
+Cmp-Mod V01 Created by PcbNew   date = Tue 05 Mar 2019 12:41:54 AM CET
+
+BeginCmp
+TimeStamp = 5C8A3E19
+Path = /5C7DBB17
+Reference = R2;
+ValeurCmp = 10k;
+IdModule  = Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C8A3E08
+Path = /5C7D949D
+Reference = R1;
+ValeurCmp = 39;
+IdModule  = Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C8A3DF7
+Path = /5C7D40AC
+Reference = C1;
+ValeurCmp = 100nF;
+IdModule  = Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C8A3DE6
+Path = /5C7D36D3
+Reference = J1;
+ValeurCmp = Connector for motherboard;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C8A3D3A
+Path = /5C7D5CA9
+Reference = U2;
+ValeurCmp = SS360PT;
+IdModule  = Package_TO_SOT_SMD:SOT-23;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C89ED74
+Path = /5C7D398F
+Reference = R3;
+ValeurCmp = 2k;
+IdModule  = Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C89ED18
+Path = /5C7D7FA3
+Reference = Q1;
+ValeurCmp = LL-304PTC4B-1AD;
+IdModule  = LED_THT:LED_D3.0mm_Clear;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C89ED04
+Path = /5C7D885E
+Reference = D1;
+ValeurCmp = TSAL4400;
+IdModule  = LED_THT:LED_D3.0mm_IRBlack;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C89ECF0
+Path = /5C7D35CF
+Reference = U1;
+ValeurCmp = PCF8574;
+IdModule  = Package_SO:SOIC-16W_7.5x10.3mm_P1.27mm;
+EndCmp
+
+EndListe
