@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{scrartcl}
+\documentclass[12pt,a4paper,oneside]{memoir}
 \usepackage{polski}
 \usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=1cm]{geometry}
 \usepackage{amsmath}
@@ -9,32 +9,54 @@
 \usepackage{titlesec}
 \usepackage{fontspec}
 \usepackage{siunitx}
-\sisetup{math-micro=\text{µ},text-micro=µ}
-\newfontfamily{\tytulyrozdzialow}{Arial}
-\setmainfont{Times New Roman}
+\usepackage{caption}
+\usepackage[
+bookmarks=false,
+pdfpagelabels=false,
+hyperfootnotes=false,
+hyperindex=false,
+pageanchor=false,
+hidelinks
+]{hyperref}
+\renewcommand{\chaptername}{} % Usunięcie napisu "Rozdział"
+\sisetup{math-micro=\text{µ},text-micro=µ} % Konwersja znaku mikro z matematyki na tekst
+\newfontfamily{\tytulyrozdzialow}{Arial} % Ustawienie czcionki Arial 
+\setmainfont{Times New Roman} % Czionka TMR dla całego tekstu
+\titleformat
+	{\chapter} % Formatowanie rozdziałów
+	[hang] % Tekst obok liczby
+	{\fontsize{14pt}{16pt}\bfseries\tytulyrozdzialow\flushleftright} % Regulacja czcionki rozdziałów
+	{\chaptertitlename\ \thechapter.} % Ustawianie wyglądu nagłówków rozdziałów
+	{15pt} % Odstęp między liczbą a tekstem
+	{} 
+\setsecheadstyle{\fontsize{13pt}{15pt}\tytulyrozdzialow\bfseries} % Ustawienie stylu dla sekcji
 \begin{document}
-	\begin{titlepage}
-		\centering
-		\includegraphics[scale=0.1]{images/logo.jpg}\par\vspace{1cm}
-		{\scshape\LARGE Kierunek: Elektronika i Telekomunikacja\\ Specjalność: Teleinformatyka \par}
-		\vspace{1cm}
-		{\scshape\Large Praca dyplomowa inżynierska\par}
-		\vspace{1.5cm}
-		{\huge\bfseries Stacja meteorologiczna oparta o ESP8266\par}
-		\vspace{2cm}
-		{\Large\itshape Damian Zaręba\\Nr albumu 8389\par}
-		\vfill
-		Promotor:\par
-		dr inż. Tadeusz Leszczyński
-		
-		\vfill
-		
-		% Bottom of the page
-		{\large Mława 2019r. \par}
-	\end{titlepage}
-\tableofcontents
+\renewcommand{\maketitle}
+{
+	\centering
+	\includegraphics[scale=0.1]{images/logo.jpg}\par\vspace{1cm}
+	{\scshape\LARGE Kierunek: Elektronika i Telekomunikacja\\ Specjalność: Teleinformatyka \par}
+	\vspace{1cm}
+	{\scshape\Large Praca dyplomowa inżynierska\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Stacja meteorologiczna oparta o ESP8266\par}
+	\vspace{2cm}
+	{\Large\itshape Damian Zaręba\\Nr albumu 8389\par}
+	\vfill
+	Promotor:\par
+	dr inż. Tadeusz Leszczyński
+	\vfill
+	
+	% Dół strony
+	{\large Mława 2019r. \par}
+}
+\maketitle
+\thispagestyle{empty}
 \newpage
-\begin{section}	{\fontsize{14pt}{16.8pt} \tytulyrozdzialow Wstęp}
+{\tytulyrozdzialow \tableofcontents}
+\newpage
+\flushleftright
+\chapter{Wstęp}
 	\hspace{\parindent} Założeniem pracy jest stworzenie stacji meteorologicznej opartej o mikroprocesor ESP8266, złożonej z kilku modułów. Tymi elementami są:
 	\begin{itemize}{}{}
 		\item Płyta główna z mikrokontrolerem ESP8266EX dla przetwarzania informacji z sensorów oraz sterowania zasilaniem całego urządzenia;
@@ -47,71 +69,69 @@
 	\par W kolejnym etapie pracy przedstawię kod źródłowy do wykorzystanego mikroprocesora. Dokładnie go omówię, wraz z algorytmami użytymi do jego napisania. Wykonuje on wiele zadań, m.in. odczytuje dane z sensorów czy kontroluje układy zasilania poszczególnych części.
 	\par W przedostatnim punkcie przedstawię krótko projekt anemometru ultradźwiękowego służącego do pomiaru prędkości i kierunku wiatru. Omówiony zostanie schemat blokowy urządzenia i jego elektryczna reprezentacja.
 	\par Ostatnim elementem projektu będzie ukazanie działania stacji. Pokażę to na przykładzie zdjęć sprzętu oraz zrzutów ekranu z aplikacji Blynk, służącej do interakcji z urządzeniem.
-\end{section}
+
+\chapter{Elementy składowe projektu} 
+\section{ESP8266EX}
+ESP8266EX to mikroukład z pełnym stosem TCP/IP oraz mikrokontrolerem wyprodukowanym przez Espressif w Szanghaju, Chiny.\\
+Istnieje jego odmiana o nazwie ESP8285 z 1 MiB wbudowanej pamięci typu flash, co umożliwiało wykorzystanie go jako pojedynczego układu zdolnego do podłączenia się do sieci Wi-Fi, po podłączeniu zasilania. W odróżnieniu od rodziny mikrokontrolerów AVR nie może być zasilany napięciem 5V, jedynie 3.3 wolta.\\
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{images/esp8266ex.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX]{Zdjęcie przedstawiające układ ESP8266EX}}
+	\caption*{\textit{Źródło:\url{http://www.alphamicrowireless.com/media/562039/esp8266ex_370px.gif}}}
+\end{figure}\\
+ESP8266 posiada 32 bitowy procesor oparty o rdzeń Xtensa Diamond Standard 106Micro (LX106) firmy Tensillica o nominalnej wartości zegara wynoszącym 80 MHz oraz charakteryzuje się następującymi funkcjami:
+\begin{itemize}
+	\item 16 pinów GPIO
+	\item SPI
+	\item I$^2$C (programowa implementacja)
+	\item I$^2$S z funkcją Direct Memory Access (współdzieli piny z GPIO)
+	\item UART na wyznaczonych pinach GPIO oraz dodatkowy UART na GPIO2 służący jedynie do wysyłania danych
+	\item 10-bitowy ADC oparty o sukcesywną aproksymację.
+	\item Wbudowana obsługa Wi-Fi o standardach b/g/n według IEEE 802.11 z wbudowanym przełącznikiem TR,LNA,Balunem, wzmacniaczem mocy oraz siecią dopasowującą oraz możliwością podłączenia się lub tworzenia sieci z zabezpieczeniami WEP lub WPA/WPA2
+\end{itemize}
+Pamięć ulotna tego mikrokontrolera jest podzielona w następujący sposób:
+\begin{itemize}
+	\item 32 KiB RAM dla instrukcji
+	\item 32 KiB RAM typu cache dla instrukcji
+	\item 80 KiB RAM dla danych użytkownika
+	\item 16 KiB RAM typu ETS dla danych "systemowych"
+\end{itemize}
+Obsługuje pamięć nieulotną typu flash po protokole SPI do pojemności 16 MiB, choć zazwyczaj korzysta się z pamięci o rozmiarach 512 KiB lub 4 MiB.\\
+\begin{figure}[h]
+	\includegraphics[scale=1.5]{images/esp8266_pinout.png}
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX]{Zdjęcie przedstawiające wyprowadzenia układu ESP8266EX}}
+	\caption*{\textit{Źródło:\url{https://learn.acrobotic.com/uploads/esp8266_pinout.png}}}
+\end{figure}\\
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Elementy składowe projektu} 
-	{
-	
-}
-\end{section}
+\section{BME280}
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Schemat funkcjonalny} 
-	{
-		
-	}
-\end{section}
+\chapter{Wykorzystane protokoły komunikacyjne}
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Schemat elektryczny} 
-	{
-		
-	}
-\end{section}
+\chapter{Schemat funkcjonalny}
+
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Kod źródłowy} 
-	{
-		
-	}
-\end{section}
+\chapter{Schemat elektryczny}
+
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Opis anemometru} 
-	{
-		
-	}
-\end{section}
+\chapter{Kod źródłowy} 
+
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Infografika} 
-	{
-		
-	}
-\end{section}
+\chapter{Opis anemometru} 
+
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Spis rysunków} 
-	{
-		
-	}
-\end{section}
+\chapter{Infografika} 
+
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Spis tabel} 
-	{
-		
-	}
-\end{section}
+\listoffigures
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Spis załączników} 
-	{
-		
-	}
-\end{section}
+\listoftables
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Bibliografia} 
-	{
-		
-	}
-\end{section}
+\chapter{Spis załączników} 
+
 \newpage
-\begin{section} {\fontsize{14pt}{16.8pt} \tytulyrozdzialow Streszczenie} 
-	{
-		
-	}
-\end{section}
+\chapter{Bibliografia}
+ 
+\newpage
+\chapter{Streszczenie} 
+
 \end{document}
