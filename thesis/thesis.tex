@@ -10,6 +10,8 @@
 \usepackage{fontspec}
 \usepackage{siunitx}
 \usepackage{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
 \usepackage[
 bookmarks=false,
 pdfpagelabels=false,
@@ -18,10 +20,15 @@ hyperindex=false,
 pageanchor=false,
 hidelinks
 ]{hyperref}
-\renewcommand{\chaptername}{} % Usunięcie napisu "Rozdział"
-\sisetup{math-micro=\text{µ},text-micro=µ} % Konwersja znaku mikro z matematyki na tekst
-\newfontfamily{\tytulyrozdzialow}{Arial} % Ustawienie czcionki Arial 
-\setmainfont{Times New Roman} % Czionka TMR dla całego tekstu
+% Wykorzystywane źródła dla tego tekstu
+% Usunięcie napisu "Rozdział"
+\renewcommand{\chaptername}{} 
+% Konwersja znaku mikro z matematyki na tekst
+\sisetup{math-micro=\text{µ},text-micro=µ} 
+% Ustawienie czcionki Arial 
+\newfontfamily{\tytulyrozdzialow}{Arial} 
+% Czionka TMR dla całego tekstu
+\setmainfont{Times New Roman}
 \titleformat
 	{\chapter} % Formatowanie rozdziałów
 	[hang] % Tekst obok liczby
@@ -57,29 +64,30 @@ hidelinks
 \newpage
 \flushleftright
 \chapter{Wstęp}
-	\hspace{\parindent} Założeniem pracy jest stworzenie stacji meteorologicznej opartej o mikroprocesor ESP8266, złożonej z kilku modułów. Tymi elementami są:
+	\hspace{\parindent} Celem pracy jest zaprojektowanie i zrealizowanie stacji meteorologicznej opartej o mikroprocesor ESP8266, złożonej z kilku modułów. Aby zrealizować założony cel, zrealizowane zostały następujące zadania:
 	\begin{itemize}{}{}
-		\item Płyta główna z mikrokontrolerem ESP8266EX dla przetwarzania informacji z sensorów oraz sterowania zasilaniem całego urządzenia;
-		\item Samodzielnie wykonany anemometr ultradźwiękowy do pomiaru kierunku i prędkości wiatru ze względów na koszty, ponieważ gotowe są zbyt drogie w stosunku do reszty;
-		\item Sensor firmy BOSCH o nazwie BME280, który służy do odczytu temperatury, ciśnienia i wilgotności powietrza;
-		\item Sensor firmy PLANTOWER o nazwie PMS7003, który mierzy ilość pyłu zawieszonego w powietrzu, o wielkości PM1.0, PM2.5 oraz PM10, mierzone w \si\micro g/m$^{3}$.
+		\item Zaprojektowanie i wykonanie płyty głównej z mikrokontrolerem ESP8266EX dla przetwarzania informacji z sensorów oraz sterowania zasilaniem całego urządzenia;
+		\item Zaprojektowanie i wykonanie anemometru do pomiaru kierunku i prędkości wiatru ze względów na koszty, ponieważ gotowe są zbyt drogie w stosunku do reszty;
+		\item Zaimplementowanie sensora firmy BOSCH o nazwie BME280, który służy do odczytu temperatury, ciśnienia i wilgotności powietrza;
+		\item Zaimplementowanie czujnika firmy PLANTOWER o nazwie PMS7003, który mierzy ilość pyłu zawieszonego w powietrzu, o wielkości PM1.0, PM2.5 oraz PM10, mierzone w \si\micro g/m$^{3}$.
 	\end{itemize}
-	\par Jednym z elementów pracy jest schemat blokowy urządzenia oraz ogólny opis poszczególnych modułów wykorzystanych do zbudowania tego urządzenia, wliczając w to charakterystyki głównych komponentów dla każdego modułu. Udokumentowane zostanie m.in. skonfigurowanie środowiska, które zostały wykorzystane do stworzenia tego projektu.
-	\par Następnie przejdę do analizy schematu urządzenia, a konkretnie płyty głównej, bazy z mikroprocesorami i zasilaniem dla wykorzystanych sensorów. Poddana dokładnej analizie będzie każda z części schematu, takie jak sekcja zasilania czy połączeniowa między płytą główną a sensorami.
-	\par W kolejnym etapie pracy przedstawię kod źródłowy do wykorzystanego mikroprocesora. Dokładnie go omówię, wraz z algorytmami użytymi do jego napisania. Wykonuje on wiele zadań, m.in. odczytuje dane z sensorów czy kontroluje układy zasilania poszczególnych części.
-	\par W przedostatnim punkcie przedstawię krótko projekt anemometru ultradźwiękowego służącego do pomiaru prędkości i kierunku wiatru. Omówiony zostanie schemat blokowy urządzenia i jego elektryczna reprezentacja.
-	\par Ostatnim elementem projektu będzie ukazanie działania stacji. Pokażę to na przykładzie zdjęć sprzętu oraz zrzutów ekranu z aplikacji Blynk, służącej do interakcji z urządzeniem.
+	\par W kolejnych rozdziałach pracy przedstawiono schemat blokowy urządzenia oraz ogólny opis poszczególnych modułów wykorzystanych do zbudowania tego urządzenia, wliczając w to charakterystyki głównych komponentów dla każdego modułu. Udokumentowane zostało m.in. konfiguracja środowiska, które zostało wykorzystana do stworzenia tego projektu.
+	\par Przeanalizowano szczegółowo schemat urządzenia, a konkretnie płyty głównej, sekcji zasilania dla wykorzystanych sensorów oraz innych elementów niezbędnych do realizacji projektu. Poddana dokładnej analizie będzie każda z części schematu, takie jak sekcja zasilania czy połączeniowa między płytą główną a sensorami.
+	\par Przedstawiono i opisano algorytmy oraz kod źródłowy programu sterującego stacją pogodową oraz omówiono protokoły komunikacyjne. Wykonuje on wiele zadań, m.in. odczytuje dane z sensorów czy kontroluje układy zasilania poszczególnych części.
+	\par W przedostatnim rozdziale przedstawiono krótko projekt anemometru służącego do pomiaru prędkości i kierunku wiatru. Omówiony i opisany został schemat blokowy anemometru i jego elektryczna reprezentacja.
+	\par W ostatnim rozdziale przedstawione zostały wyniki badań wykonanego modelu stacji pogodowej.
 
 \chapter{Elementy składowe projektu} 
 \section{ESP8266EX}
-ESP8266EX to mikroukład z pełnym stosem TCP/IP oraz mikrokontrolerem wyprodukowanym przez Espressif w Szanghaju, Chiny.\\
+\par ESP8266EX to mikroukład z pełnym stosem TCP/IP oraz mikrokontrolerem wyprodukowanym przez Espressif w Szanghaju, Chiny.\\
 Istnieje jego odmiana o nazwie ESP8285 z 1 MiB wbudowanej pamięci typu flash, co umożliwiało wykorzystanie go jako pojedynczego układu zdolnego do podłączenia się do sieci Wi-Fi, po podłączeniu zasilania. W odróżnieniu od rodziny mikrokontrolerów AVR nie może być zasilany napięciem 5V, jedynie 3.3 wolta.\\
 \begin{figure}[h]
+	\centering
 	\includegraphics[scale=0.5]{images/esp8266ex.jpg}
-	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX]{Zdjęcie przedstawiające układ ESP8266EX}}
-	\caption*{\textit{Źródło:\url{http://www.alphamicrowireless.com/media/562039/esp8266ex_370px.gif}}}
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX]{Zdjęcie przedstawiające układ ESP8266EX}
+	\caption*{\textit{Źródło: \cite{esp8266chip}}}}
 \end{figure}\\
-ESP8266 posiada 32 bitowy procesor oparty o rdzeń Xtensa Diamond Standard 106Micro (LX106) firmy Tensillica o nominalnej wartości zegara wynoszącym 80 MHz oraz charakteryzuje się następującymi funkcjami:
+\par ESP8266EX \cite{esp8266wiki} posiada 32 bitowy procesor oparty o rdzeń Xtensa Diamond Standard 106Micro (LX106) firmy Tensillica o nominalnej wartości zegara wynoszącym 80 MHz. Charakteryzuje się on następującymi funkcjami:
 \begin{itemize}
 	\item 16 pinów GPIO
 	\item SPI
@@ -89,23 +97,193 @@ ESP8266 posiada 32 bitowy procesor oparty o rdzeń Xtensa Diamond Standard 106Mi
 	\item 10-bitowy ADC oparty o sukcesywną aproksymację.
 	\item Wbudowana obsługa Wi-Fi o standardach b/g/n według IEEE 802.11 z wbudowanym przełącznikiem TR,LNA,Balunem, wzmacniaczem mocy oraz siecią dopasowującą oraz możliwością podłączenia się lub tworzenia sieci z zabezpieczeniami WEP lub WPA/WPA2
 \end{itemize}
-Pamięć ulotna tego mikrokontrolera jest podzielona w następujący sposób:
+\par Pamięć ulotna tego mikrokontrolera jest podzielona w następujący sposób :
 \begin{itemize}
 	\item 32 KiB RAM dla instrukcji
 	\item 32 KiB RAM typu cache dla instrukcji
 	\item 80 KiB RAM dla danych użytkownika
 	\item 16 KiB RAM typu ETS dla danych "systemowych"
 \end{itemize}
-Obsługuje pamięć nieulotną typu flash po protokole SPI do pojemności 16 MiB, choć zazwyczaj korzysta się z pamięci o rozmiarach 512 KiB lub 4 MiB.\\
+\par Obsługuje pamięć nieulotną typu flash po protokole SPI do pojemności 16 MiB, choć zazwyczaj korzysta się z pamięci o rozmiarach 512 KiB lub 4 MiB.\\
 \begin{figure}[h]
+	\centering
 	\includegraphics[scale=1.5]{images/esp8266_pinout.png}
-	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX]{Zdjęcie przedstawiające wyprowadzenia układu ESP8266EX}}
-	\caption*{\textit{Źródło:\url{https://learn.acrobotic.com/uploads/esp8266_pinout.png}}}
-\end{figure}\\
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX - opis wyprowadzeń]{Zdjęcie przedstawiające wyprowadzenia dla układu ESP8266EX}
+	\caption*{\textit{Źródło: \cite{esp8266pinout}}}}
+\end{figure}
+\newpage
+Układ ESP8266EX posiada kilka linii zasliania:
+\begin{itemize}
+	\item 2x VDDA (Zasilanie sekcji analogowej)- 2.5 wolt do 3.6 wolt
+	\item VDDD (To samo, co VDDA) - 2.5 wolt do 3.6 wolt.
+	\item 2x VDD3P3 (Zasilanie wzmacniacza sygnału Wi-Fi) - 2.5 wolt do 3.6 wolt.
+	\item 2x VDDPST (Zasilanie sekcji cyfrowej i wejść/wyjść) - 1.8 wolt do 3.6 wolt.
+\end{itemize}
+\par Używa się pinów GPIO2, GPIO0 oraz GPIO15/MTDO dla ustawienia trybu uruchamiania układu.
+\\[10pt]
+\begin{table}[!h]
+\centering
+\resizebox{10cm}{!}{%
+	\begin{tabular}{|
+			>{\columncolor[HTML]{EFEFEF}}c |c|c|c|}
+		\hline
+		\cellcolor[HTML]{96FFFB} & \cellcolor[HTML]{EFEFEF}\textbf{GPIO0} & \cellcolor[HTML]{EFEFEF}\textbf{GPIO2} & \cellcolor[HTML]{EFEFEF}\textbf{GPIO15} \\ \hline
+		\textbf{\begin{tabular}[c]{@{}c@{}}Tryb \\ programowania\end{tabular}} & L & H & L \\ \hline
+		\textbf{\begin{tabular}[c]{@{}c@{}}Uruchamianie z\\ pamięci flash\end{tabular}} & H & H & L \\ \hline
+		\textbf{\begin{tabular}[c]{@{}c@{}}Uruchamianie z\\ karty SD\end{tabular}} & X & X & H \\ \hline
+	\end{tabular}%
+}
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX - tryby uruchamiania]{Tabela przedstawiająca tryby uruchamiania dla układu ESP8266EX}
+	\caption*{\textit{Źródło: \cite{esp8266datasheet}}}}
+\end{table}\\
+\newpage
+\par ESP8266EX obsługuje 14 kanałów w łączności Wi-Fi
+\begin{table} [!h]
+\centering
+\resizebox{6cm}{!}{%
+	\begin{tabular}{|c|c|}
+		\hline
+		\rowcolor[HTML]{EFEFEF} 
+		\textbf{\begin{tabular}[c]{@{}c@{}}Numer\\ kanału\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Częstotliwość\\ {[}MHz{]}\end{tabular}} \\ \hline
+		1 & 2412 \\ \hline
+		2 & 2417 \\ \hline
+		3 & 2422 \\ \hline
+		4 & 2427 \\ \hline
+		5 & 2432 \\ \hline
+		6 & 2437 \\ \hline
+		7 & 2442 \\ \hline
+		8 & 2447 \\ \hline
+		9 & 2452 \\ \hline
+		10 & 2457 \\ \hline
+		11 & 2462 \\ \hline
+		12 & 2467 \\ \hline
+		13 & 2472 \\ \hline
+		14 & 2484 \\ \hline
+	\end{tabular}%
+}
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX - kanały Wi-Fi]{Tabela przedstawiająca dostępne kanały łączności Wi-Fi dla układu ESP8266EX}
+	\caption*{\textit{Źródło: \cite{esp8266datasheet}}}}
+\end{table}\\
+\newpage
+\par Maksymalny pobór prądu przez sam układ, nie licząc łączności Wi-Fi wynosi 12mA.
+Pobór wzrasta w zależności od mocy transmisji lub odbioru pakietów za pomocą Wi-Fi. Pomiary były wykonane dla napięcia 3 wolt w temperaturze 25$^°$C. Wszystkie pomiary przesyłu danych były bazowane na 50\% długości cyklu
+\begin{table}[!h]
+\centering
+\resizebox{15cm}{!}{%
+	\begin{tabular}{|
+			>{\columncolor[HTML]{EFEFEF}}c |c|c|c|c|}
+		\hline
+		\textbf{\begin{tabular}[c]{@{}c@{}}Parametry \\ łączności\end{tabular}} & \cellcolor[HTML]{EFEFEF}\textbf{Minimalny} & \cellcolor[HTML]{EFEFEF}\textbf{Typowy} & \cellcolor[HTML]{EFEFEF}\textbf{Maksymalny} & \cellcolor[HTML]{EFEFEF}\textbf{Jednostka} \\ \hline
+		\begin{tabular}[c]{@{}c@{}}TX 802.11b\\ CCK 11 Mbps\\ $P_{OUT}$ =\\ +15 dBm\end{tabular} & - & 170 & - & mA \\ \hline
+		\begin{tabular}[c]{@{}c@{}}TX 802.11g\\ OFDM 54 Mbps\\ $P_{OUT}$=\\ +17 dBm\end{tabular} & - & 140 & - & mA \\ \hline
+		\begin{tabular}[c]{@{}c@{}}TX 802.11n\\ MCS7\\ $P_{OUT}$ =\\ +13 dBm\end{tabular} & - & 120 & - & mA \\ \hline
+		\begin{tabular}[c]{@{}c@{}}RX 802.11b\\ 1024 bajtów\\ -80 dBm\end{tabular} & - & 50 & - & mA \\ \hline
+		\begin{tabular}[c]{@{}c@{}}RX 802.11g\\ 1024 bajtów\\ -70 dBm\end{tabular} & - & 56 & - & mA \\ \hline
+		\begin{tabular}[c]{@{}c@{}}RX 802.11n\\ 1024 bajtów\\ -65 dBm\end{tabular} & - & 56 & - & mA \\ \hline
+	\end{tabular}%
+}
+	{\tytulyrozdzialow \footnotesize \caption[ESP8266EX - pobór mocy przy łączności Wi-Fi]{Tabela przedstawiająca pobór mocy dla łączności Wi-Fi przez ESP8266EX}
+	\caption*{\textit{Źródło: \cite{esp8266datasheet}}}}
+\end{table}
 \newpage
 \section{BME280}
+BME280 to sensor temperatury, wilgotności i ciśnienia wykonany przez firmę Bosch.
+Jego rozmiary to 2.5 milimetra na 2.5 milimetra w obudowie typu LGA (Land Grid Array).
+Komunikuje się z mikrokontrolerem za pomocą protokołu I$^2$C (Do 3.4 MHz) lub SPI (3 lub 4 przewodowego, do 10 MHz)
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.4]{images/bme280.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[BME280]{Zdjęcie przedstawiające układ BME280}}
+	\caption*{\textit{Źródło: \cite{bme280chip}}}
+\end{figure}\\
+Zasilany jest w projekcie napięciem 3.3V, choć jego specyfikacja podaje, że pin zasilania VDD samego układu toleruje napięcia od 1.71 wolt do 3.6 wolt, a pin zasilania wejść/wyjść VDDIO od 1.2 wolt do 3.6 wolt.\\*
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.25]{images/bme280-mod.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[BME280 - Moduł]{Zdjęcie przedstawiające moduł zawierający BME280, komunikujący się przez protokół I$^2$C}}
+	\caption*{\textit{Źródło: \cite{bme280module}}}
+\end{figure}\\
+\newpage
+Pobiera w zastosowanej aplikacji około 3.6µA, czyli pomiaru wilgotności, ciśnienia i temperatury z częstotliwością 1Hz, choć może być niższy, ponieważ pomiary będą dokonywane rzadziej, około co pół godziny lub godzinę, w zależności od wymagań. Będzie możliwość ustawienia tego w kodzie źródłowym programu dla tej aplikacji.\\[10pt]
+Kluczowe parametry sensora wilgotności:
+\begin{itemize}
+	\item Czas odpowiedzi ($\tau_{63\%}$) wynosi 1 sekundę
+	\item Tolerancja dla dokładności pomiaru wynosi ±3 \% relatywnej wilgotności
+	\item Histereza pomiaru wynosi ±1 \% relatywnej wilgotności
+\end{itemize}
+Kluczowe parametry części pomiarowej dla ciśnienia:
+\begin{itemize}
+	\item Średni poziom szumów wynosi 0.2 Pa, co jest odpowiednkiem dla 1.7 cm
+	\item Współczynnik odchylenia temperaturowego wynosi ±1.5 Pa/K, co jest równoważne dla ±12.6 cm przy zmianie temperatury o 1$^°$C
+\end{itemize}
+\newpage
+\section{PMS7003}
+Sensor PMS7003 służy do pomiaru ilości cząsteczek w powietrzu o gradiacji PM1.0, PM2.5 oraz PM10 (odpowiednio: cząsteczki o średnicy około 1µm, 2.5µm oraz 10µm). Powszechnie korzyta się z niego do pomiaru jakości powietrza. Wykorzystuje on do tego laserowy czujnik pyłków.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{images/pms7003.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[PMS7003] {Zdjęcie przedstawiające moduł PMS7003, komunikujący się przez protokół UART}}
+	\caption*{\textit{Źródło: \cite{pms7003module}}}
+\end{figure}\\
+Czujnik ten charakteryzuje się następującymi parametrami:
+\begin{itemize}
+	\item Pojedynczy czas odpowiedzi wynosi mniej niż 1s
+	\item Całkowity czas odpowiedzi wynosi do 10 sekund
+	\item Zasilany jest napięciem 5 wolt
+	\item Pobór prądu podczas pomiarów wynosi do 100 mA
+	\item Stały pobór prądu, kiedy czujnik nie wykonuje pomiaru wynosi do 200 μA
+	\item Napięcie operacyjne dla przesyłu i odbioru danych to 3.3 wolta.
+	\item Pracuje w temperaturze od -10 do +60 stopni Celcjusza.
+	\item "Pojemność" czujnika wynosi 0.1L
+\end{itemize}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.5]{images/pms7003-pinout.png}
+	{\tytulyrozdzialow \footnotesize \caption[PMS7003 - pinout] {Zdjęcie przedstawiające wyprowadzenia czujnika PMS7003}
+	\caption*{\textit{Źródło: \cite{pms7003datasheet}}}}
+\end{figure}
+\newpage
+Lista wyprowadzeń tego sensora jest następująca:
+\begin{table}[h]
+	\centering
+	\resizebox{10cm}{!}{%
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Wyprowadzenia PMS7003}} \\ \hline
+		Pin 1 & VCC & Zasilanie 5V \\ \hline
+		Pin 2 & VCC & Zasilanie 5V \\ \hline
+		Pin 3 & GND & Masa zasilania \\ \hline
+		Pin 4 & GND & Masa zasilania \\ \hline
+		Pin 5 & RESET & Pin resetu modułu \\ \hline
+		Pin 6 & NC & - \\ \hline
+		Pin 7 & RX & Pin odbierania danych \\ \hline
+		Pin 8 & NC & - \\ \hline
+		Pin 9 & TX & Pin wysyłania danych \\ \hline
+		Pin 10 & SET & \begin{tabular}[c]{@{}c@{}}Stan wysoki - normalna operacja\\ Stan niski - uśpienie układu\end{tabular} \\ \hline
+	\end{tabular}%
+}
+	{\tytulyrozdzialow \footnotesize \caption[PMS7003 - Lista wyprowadzeń] {Tabela przedstawiająca listę wyprowadzeń modułu PMS7003}}
+	\caption*{\textit{Źródło: \cite{pms7003datasheet}}}
+\end{table}
 \newpage
 \chapter{Wykorzystane protokoły komunikacyjne}
+\section{I$^2$C}
+\par I$^2$C \cite{i2cwiki} to protokół szeregowy zaprojektowany przez firmę Phillips Semiconductor, która dziś działa jako NXP Semiconductors w 1982 roku. Ma możliwość podpięcia wielu urządzeń w trybie \textit{Master} oraz w trybie \textit{Slave}. Istnieją dwie dodatkowe wersje I$^2$C - SMBus (System Management Bus), wykorzystywany w komputerach klasy PC do zarządzania podzespołami oraz PMBus (Power Management Bus) - do kontroli urządzeń związanych z zasilaniem. 
+\par Wykorzystuje on dwie obustronne linie z otwartym kolektorem lub otwartym drenem, Serial Data Line (SDA) i Serial Clock Line (SCL), z rezystorami podiągającymi do zasilania.Zazwyczaj używa się napięć +5V lub +3.3V, ale inne napięcia są również dozwolone.
+\par Magistrala I$^2$C posiada kilka trybów prędkości:
+\begin{itemize}
+	\item Low-speed - 10 kbit/s
+	\item Standard - 100 kbit/s
+	\item Fast - 400 kbit/s
+	\item Fast mode plus (Fm+) - 1 Mbit/s
+	\item High speed - 3.4 Mbit/s
+\end{itemize}
+\par Z tych najszybszych korzysta się w systemach wbudowanych a nie w komputerach osobistych.\\
+\par Magistrala I$^2$C posiada dwie ważne cechy - rozszerzanie zegara (Clock Stretching) oraz Arbitraż (Arbitation). 
+Rozszerzanie zegara polaga na tym, że urządzenie typu \textit{Slave} może utrzymywać linię zegara SCL w stanie niskim po otrzymaniu lub wysłaniu bajtu informacji, która wskazuje, że nie jest jeszcze gotowe do przetwarzania kolejnej porcji danych. Urządzenie typu \textit{Master} komunikujące się z danym modułem nie może wtedy zakończyć transmisji tylko musi czekać aż linia zegara SCL będzie w stanie wysokim. Jest to jedyna sytuacja, gdzie urządzenie typu \textit{Slave} ma kontrolę nad linią zegara. Urządzenie typu \textit{Master} musi odczekać dodatkowe 4 μs po prześciu linii SCL w stan wysoki zanim będzie mógł podciągnąć linię zegara do stanu niskiego.
+\par Arbitraż natomiast polega na tym, że każde urządzenie typu \textit{Master}
+\section{UART}
+\par UART (Universal asynchronous receiver-transmitter) \cite{uartwiki}
 \newpage
 \chapter{Schemat funkcjonalny}
 
@@ -126,11 +304,65 @@ Obsługuje pamięć nieulotną typu flash po protokole SPI do pojemności 16 MiB
 \newpage
 \listoftables
 \newpage
-\chapter{Spis załączników} 
+\begin{thebibliography}{12}
+	\bibitem{esp8266wiki}
+	,,ESP8266'',
+	\textit{Wikipedia},
+	Zebrane 3 marca 2019,
+	\url{https://en.wikipedia.org/wiki/ESP8266}
+	\bibitem{esp8266datasheet}
+	Nota katalogowa ESP8266,
+	\textit{Espressif},
+	Zebrane 25 lutego 2019,
+	\url{https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf}
+	\bibitem{esp8266chip}
+	Zdjęcie ESP8266EX,
+	\textit{alphamicrowireless.com}
+	Zebrane 3 marca 2019,
+	\url{http://www.alphamicrowireless.com/media/562039/esp8266ex_370px.gif}
+	\bibitem{esp8266pinout}
+	Pinout ESP8266EX,
+	\textit{acrobotic.com},
+	Zebrane 3 marca 2019,
+	\url{https://learn.acrobotic.com/uploads/esp8266_pinout.png}
+	\bibitem{bme280datasheet}
+	Nota katalogowa BME280,
+	\textit{Bosch},
+	Zebrane 25 lutego 2019,
+	\url{https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280-DS002.pdf}
+	\bibitem{bme280chip}
+	Zdjęcie przedstawiające układ BME280,
+	\textit{dnatechindia.com}
+	Zebrane 3 marca 2019,
+	\url{http://www.dnatechindia.com/image/cache/catalog/bme280\%201-500x500.jpg}
+	\bibitem{bme280module}
+	Zdjęcie przedstawiające gotowy moduł z układem BME280,
+	\textit{gunook.com}
+	Zebrane 3 marca 2019,
+	\url{http://img.gunook.com/upload/a/1d/a1d0568812635b491d33f680db52a587.jpg}
+	\bibitem{pms7003datasheet}
+	Przetłumaczona nota katalogowa PMS7003,
+	\textit{github.com}
+	Zebrane 26 lutego 2019,
+	\url{https://raw.githubusercontent.com/eleparts/PMS7003/master/data\%20sheet/PMS7003\%20datasheet.pdf}
+	\bibitem{pms7003module}
+	Zdjęcie sensora PMS7003,
+	\textit{amazon.com}
+	Zebrane 3 marca 2019,
+	\url{https://images-na.ssl-images-amazon.com/images/I/41KI\%2BnbtAGL._SX342_.jpg}
+	\bibitem{i2cwiki}
+	,,I$^2$C'',
+	\textit{Wikipedia}
+	Zebrane 3 marca 2019,
+	\url{https://en.wikipedia.org/wiki/I%C2%B2C}
+	\bibitem{uartwiki}
+	,,Universal asynchronous receiver-transmitter'', 
+	\textit{Wikipedia}
+	Zebrane 3 marca 2019,
+	\url{https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter}
+	
+\end{thebibliography}
 
-\newpage
-\chapter{Bibliografia}
- 
 \newpage
 \chapter{Streszczenie} 
 

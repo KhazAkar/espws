@@ -1,4 +1,4 @@
-update=pon, 11 lut 2019, 22:31:44
+update=Tue 12 Mar 2019 03:33:36 PM CET
 version=1
 last_client=kicad
 [general]
@@ -35,7 +35,7 @@ LibDir=
 version=1
 PageLayoutDescrFile=
 PlotDirectoryName=/home/khazakar/Pulpit/
-SubpartIdSeparator=0
+SubpartIdSeparator=46
 SubpartFirstId=65
 NetFmtName=Pcbnew
 SpiceAjustPassiveValues=0
