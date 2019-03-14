@@ -10,6 +10,8 @@
 \usepackage{fontspec}
 \usepackage{siunitx}
 \usepackage{caption}
+\usepackage{multirow}
+\usepackage{lscape}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
 \usepackage[
@@ -281,7 +283,41 @@ Lista wyprowadzeń tego sensora jest następująca:
 \par Z tych najszybszych korzysta się w systemach wbudowanych a nie w komputerach osobistych.\\
 \par Magistrala I$^2$C posiada dwie ważne cechy - rozszerzanie zegara (Clock Stretching) oraz Arbitraż (Arbitation). 
 Rozszerzanie zegara polaga na tym, że urządzenie typu \textit{Slave} może utrzymywać linię zegara SCL w stanie niskim po otrzymaniu lub wysłaniu bajtu informacji, która wskazuje, że nie jest jeszcze gotowe do przetwarzania kolejnej porcji danych. Urządzenie typu \textit{Master} komunikujące się z danym modułem nie może wtedy zakończyć transmisji tylko musi czekać aż linia zegara SCL będzie w stanie wysokim. Jest to jedyna sytuacja, gdzie urządzenie typu \textit{Slave} ma kontrolę nad linią zegara. Urządzenie typu \textit{Master} musi odczekać dodatkowe 4 μs po prześciu linii SCL w stan wysoki zanim będzie mógł podciągnąć linię zegara do stanu niskiego.
-\par Arbitraż natomiast polega na tym, że każde urządzenie typu \textit{Master}
+\par Magistrala I$^2$C posiada deterministyczny system arbitrażu. Arbitraż polega na tym, że każde urządzenie typu \textit{Master} monitoruje linię, wyszukując bitów START i STOP i nie zacznie komunikacji, póki linie są zajęte przez inne urządzenia typu \textit{Master}. Jednakże, dwa urządzenia typu \textit{Master} mogą zacząć transmisję w tym samym czasie - wtedy następuje arbitraż. Każdy transmiter sprawdza poziom linii danych (SDA) i porównuje do oczekiwanego; jeśli się nie zgadza to urządzenie transmitujące traci arbitrację i wyłącza się z danej interakcji z protokołem I$^2$C.
+\newpage
+\begin{table}[!h]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{cccccc}
+			\multicolumn{6}{c}{Status zajętości magistrali oraz bitów START i STOP.} \\ \hline
+			\rowcolor[HTML]{EFEFEF} 
+			\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Typ}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Linia Nieaktywna \\ (N)\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Start \\ (S)\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Oczekiwanie\\ (I)\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Stop\\ (P)\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Rozszerzanie zegara\\ (CS)\end{tabular}}} \\ \hline
+			\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Opis}} & \multicolumn{1}{c|}{Arbitraż wolny do zajęcia} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Zajmowanie linii\\ (Master)\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Linia zajęta\\ (Master)\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Zwalnianie linii\\ (Master)\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Zastopowanie\\ (Slave)\end{tabular}} \\ \hline
+			\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{SDA}} & \multicolumn{1}{c|}{Podciąganie pasywne} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Zbocze opadające\\ (Master)\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Stan niski\\ (Master)\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Zbocze wzrastające\\ (Master)\end{tabular}}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Nie ma \\ znaczenia\end{tabular}} \\ \hline
+			\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{SCL}} & \multicolumn{1}{c|}{Podciąganie pasywne} & \multicolumn{1}{c|}{Podciąganie pasywne} & \multicolumn{1}{c|}{Pasywne podciąganie} & \multicolumn{1}{c|}{Pasywne podciąganie} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Stan niski\\ (Slave)\end{tabular}}} \\ \hline
+		\end{tabular}%
+	}
+	{\tytulyrozdzialow \footnotesize \caption[I$^2$C - Stany zajętości magistrali] {Tabela przedstawiająca stany zajętości linii w magistrali I$^2$C}}
+	\caption*{\textit{Źródło: \cite{i2cwiki}}}
+\end{table}
+\begin{table}[!h]
+	\centering
+	\resizebox{1.05\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	\rowcolor[HTML]{EFEFEF} 
+	\cellcolor[HTML]{EFEFEF} & \multicolumn{2}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Wysłanie jednego bitu danych (1) (0)\\ (Linia SDA jest ustawiona po SCL w celu uniknięcia wykrycia fałszywego stanu linii)\end{tabular}}} & \multicolumn{2}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Odpowiedź odbiorcy za pomocą bitu ACK\\ (Bajt odebrany od nadawcy)\end{tabular}}} & \multicolumn{2}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Odpowiedź odbiorcy za pomocą bitu NACK\\ (Bajt nie odebrany od nadawcy\end{tabular}}} \\ \cline{2-7} 
+	\rowcolor[HTML]{EFEFEF} 
+	\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{Typ}} & \textbf{Ustawienie bitów (Bs)} & \textbf{Gotowość do próbkowania (Bx)} & \textbf{Ustawienie bitów (Bs)} & \textbf{ACK (A)} & \textbf{Ustawienie bitów (Bs)} & \textbf{NACK(A')} \\ \hline
+	\cellcolor[HTML]{EFEFEF}\textbf{Opis} & Nadawca ustawia bit (Master/Slave) & Odbiora próbkuje bit (Master/Slave) & \begin{tabular}[c]{@{}c@{}}Nadawca ustawia stan\\ wysokiej impedancji\end{tabular} & \begin{tabular}[c]{@{}c@{}}Nadawca widzi linię SDA\\ jako w stanie niskim\end{tabular} & \begin{tabular}[c]{@{}c@{}}Nadawca ustawia stan\\ wysokiej impedancji\end{tabular} & \begin{tabular}[c]{@{}c@{}}Nadawca widzi \\ stan wysoki\end{tabular} \\ \hline
+	\cellcolor[HTML]{EFEFEF}\textbf{SDA} & Ustawia bit (Po opadnięciu SCL) & Odbiera bit (Po wzroście SCL) & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Utrzymane w stanie niskim \\ (Po opadnięciu SCL)\end{tabular}} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Starowane stanem wysokim \\ (Lub pasywnie wysokim) przez odbiorcę\\ (Po opadnięciu SCL)\end{tabular}} \\ \hline
+	\cellcolor[HTML]{EFEFEF}\textbf{SCL} & \textbf{Opadające zbocze (Master)} & \textbf{Wzrastające zbocze (Master)} & \textbf{Opadające zbocze (Master)} & \textbf{Wzrastające zbocze (Master)} & \textbf{Opadające zbocze (Master)} & \textbf{Wzrastające zbocze (Master)} \\ \hline
+\end{tabular}%
+}
+	{\tytulyrozdzialow \footnotesize \caption[I$^2$C - Stany magistrali przy przesyle danych] {Tabela przedstawiająca stany linii w magistrali I$^2$C przy wymianie informacji między odbiorcą a nadawcą}}
+	\caption*{\textit{Źródło: \cite{i2cwiki}}}
+\end{table}\\
+Magistrala I$^2$C posiada 7 bitową adresację oraz 10 bitową adresację, która jest wykorzystywana jako rozszerzenie podstawowej, 7 bitowej adresacji. 7 bitowa adresacja posiada 2 adresy zarezerwowane - \textit{0000 XXX} oraz \textit{1111 XXX}
 \section{UART}
 \par UART (Universal asynchronous receiver-transmitter) \cite{uartwiki}
 \newpage
@@ -359,8 +395,7 @@ Rozszerzanie zegara polaga na tym, że urządzenie typu \textit{Slave} może utr
 	,,Universal asynchronous receiver-transmitter'', 
 	\textit{Wikipedia}
 	Zebrane 3 marca 2019,
-	\url{https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter}
-	
+	\url{https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter}	
 \end{thebibliography}
 
 \newpage
