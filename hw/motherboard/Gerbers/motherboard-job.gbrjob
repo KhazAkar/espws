@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "5.0.2-5.0.2"
+      "Version":     "5.1.0-5.1.0"
     },
-    "CreationDate":  "2019-03-08T22:42:58+01:00"
+    "CreationDate":  "2019-03-18T21:11:32+01:00"
   },
   "GeneralSpecs":
   {
@@ -40,64 +40,64 @@
       "PadToTrack":  0.102,
       "TrackToTrack":  0.102,
       "MinLineWidth":  0.305,
-      "TrackToRegion":  0.508,
-      "RegionToRegion":  0.508
+      "TrackToRegion":  0.254,
+      "RegionToRegion":  0.254
     }
   ],
   "FilesAttributes":
   [
     {
-      "Path":  "motherboard-SIG1.gtl",
+      "Path":  "motherboard-SIG1.gbr",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-GND.g2",
+      "Path":  "motherboard-GND.gbr",
       "FileFunction":  "Copper,L2,Inr",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-PWR.g3",
+      "Path":  "motherboard-PWR.gbr",
       "FileFunction":  "Copper,L3,Inr",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-SIG2.gbl",
+      "Path":  "motherboard-SIG2.gbr",
       "FileFunction":  "Copper,L4,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-F.Paste.gtp",
+      "Path":  "motherboard-F_Paste.gbr",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-B.Paste.gbp",
+      "Path":  "motherboard-B_Paste.gbr",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-F.SilkS.gto",
+      "Path":  "motherboard-F_SilkS.gbr",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-B.SilkS.gbo",
+      "Path":  "motherboard-B_SilkS.gbr",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "motherboard-F.Mask.gts",
+      "Path":  "motherboard-F_Mask.gbr",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "motherboard-B.Mask.gbs",
+      "Path":  "motherboard-B_Mask.gbr",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "motherboard-Edge.Cuts.gm1",
+      "Path":  "motherboard-Edge_Cuts.gbr",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }

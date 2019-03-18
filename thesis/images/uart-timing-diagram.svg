@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" version="1.0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 1390 144" width="1390" height="144">
+ <g stroke="#000" stroke-width="2" fill="none">
+  <path d="m80 41h20l10 62h110l10-62h110l10 62h110l10-62h110l10 62h110l10-62h110l10 62h110l10-62h110l10 62h110l10-62h120"/>
+  <path d="m80 41h-40" stroke-dasharray="4, 2"/>
+  <path d="m225 72l5 31h110l10-62h110l10 62h40 70l10-62h110l10 62h110l10-62h110l10 62h110l10-62h110l5 31"/>
+  <path d="m1350 41h-40" stroke-dasharray="4, 2"/>
+ </g>
+ <g font-size="20.33px" font-family="sans-serif" fill="#000000">
+  <text y="78" x="125">start bit</text>
+  <text y="78" x="262">bit 0</text>
+  <text y="78" x="382">bit 1</text>
+  <text y="78" x="502">bit 2</text>
+  <text y="78" x="622">bit 3</text>
+  <text y="78" x="742">bit 4</text>
+  <text y="78" x="862">bit 5</text>
+  <text y="78" x="982">bit 6</text>
+  <text y="78" x="1102">bit 7</text>
+  <text y="78" x="1205">stop bit</text>
+ </g>
+</svg>

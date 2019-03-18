@@ -1,1 +1,0 @@
-My whole work is licensed as MIT, but esptool.py is GPLv2, to not confuse anybody I wrote that note.

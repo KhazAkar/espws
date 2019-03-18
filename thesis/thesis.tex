@@ -310,19 +310,118 @@ Rozszerzanie zegara polaga na tym, że urządzenie typu \textit{Slave} może utr
 	\rowcolor[HTML]{EFEFEF} 
 	\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{Typ}} & \textbf{Ustawienie bitów (Bs)} & \textbf{Gotowość do próbkowania (Bx)} & \textbf{Ustawienie bitów (Bs)} & \textbf{ACK (A)} & \textbf{Ustawienie bitów (Bs)} & \textbf{NACK(A')} \\ \hline
 	\cellcolor[HTML]{EFEFEF}\textbf{Opis} & Nadawca ustawia bit (Master/Slave) & Odbiora próbkuje bit (Master/Slave) & \begin{tabular}[c]{@{}c@{}}Nadawca ustawia stan\\ wysokiej impedancji\end{tabular} & \begin{tabular}[c]{@{}c@{}}Nadawca widzi linię SDA\\ jako w stanie niskim\end{tabular} & \begin{tabular}[c]{@{}c@{}}Nadawca ustawia stan\\ wysokiej impedancji\end{tabular} & \begin{tabular}[c]{@{}c@{}}Nadawca widzi \\ stan wysoki\end{tabular} \\ \hline
-	\cellcolor[HTML]{EFEFEF}\textbf{SDA} & Ustawia bit (Po opadnięciu SCL) & Odbiera bit (Po wzroście SCL) & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Utrzymane w stanie niskim \\ (Po opadnięciu SCL)\end{tabular}} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Starowane stanem wysokim \\ (Lub pasywnie wysokim) przez odbiorcę\\ (Po opadnięciu SCL)\end{tabular}} \\ \hline
+	\cellcolor[HTML]{EFEFEF}\textbf{SDA} & Ustawia bit (Po opadnięciu SCL) & Odbiera bit (Po wzroście SCL) & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Utrzymane w stanie niskim \\ (Po opadnięciu SCL)\end{tabular}} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Sterowane stanem wysokim \\ (Lub pasywnie wysokim) przez odbiorcę\\ (Po opadnięciu SCL)\end{tabular}} \\ \hline
 	\cellcolor[HTML]{EFEFEF}\textbf{SCL} & \textbf{Opadające zbocze (Master)} & \textbf{Wzrastające zbocze (Master)} & \textbf{Opadające zbocze (Master)} & \textbf{Wzrastające zbocze (Master)} & \textbf{Opadające zbocze (Master)} & \textbf{Wzrastające zbocze (Master)} \\ \hline
 \end{tabular}%
 }
 	{\tytulyrozdzialow \footnotesize \caption[I$^2$C - Stany magistrali przy przesyle danych] {Tabela przedstawiająca stany linii w magistrali I$^2$C przy wymianie informacji między odbiorcą a nadawcą}}
 	\caption*{\textit{Źródło: \cite{i2cwiki}}}
-\end{table}\\
-Magistrala I$^2$C posiada 7 bitową adresację oraz 10 bitową adresację, która jest wykorzystywana jako rozszerzenie podstawowej, 7 bitowej adresacji. 7 bitowa adresacja posiada 2 adresy zarezerwowane - \textit{0000 XXX} oraz \textit{1111 XXX}
+\end{table}
+Magistrala I$^2$C posiada 7 bitową adresację oraz 10 bitową adresację, która jest wykorzystywana jako rozszerzenie podstawowej, 7 bitowej adresacji. 7 bitowa adresacja posiada 2 zarezerwowane grupy adresów - \textit{0000 XXX} oraz \textit{1111 XXX}:
+\begin{itemize}
+	\item \textit{0000 000 0} - Generalne odwołanie
+	\item \textit{0000 000 1} - bajt START
+	\item \textit{0000 001 X} - Adres CBUS
+	\item \textit{0000 010 X} - Zarezerwowane dla innego formatu magistrali
+	\item \textit{0000 011 X} - Zarezerwowane na przyszły użytek
+	\item \textit{0000 1XX X} - Kod trybu High Speed
+	\item \textit{1111 1XX 1} - Kod identyfikacyjny urządzenia
+	\item \textit{1111 0XX X} - 10 bitowa adresacja urządzenia typu \textit{Slave}
+\end{itemize}
+7-bitowa adresacja składa się z 7 bitów identyfikacji oraz ósmego bitu - oznaczenia zapisu/odczytu danych. Długość części MSB to 4 bity, a LSB - 3 bity.
+\begin{table}[!h]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\cellcolor[HTML]{EFEFEF}\textbf{Pole} & \cellcolor[HTML]{EFEFEF}\textbf{S} & \multicolumn{7}{c|}{Adres I$^2$C} & R/W & A & Sekwencje danych I$^2$C & P \\ \hline
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Typ} & \cellcolor[HTML]{EFEFEF} & \multicolumn{8}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Pierwszy bajt}} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} \\ \cline{1-1} \cline{3-10}
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Pozycja bitu w bajcie X} & \cellcolor[HTML]{EFEFEF} & \textbf{7} & \textbf{6} & \textbf{5} & \textbf{4} & \textbf{3} & \textbf{2} & \textbf{1} & \textbf{0} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} \\ \cline{1-1} \cline{3-10}
+			\rowcolor[HTML]{EFEFEF} 
+			\textbf{Pozycja 7-bitowego adresu} & \cellcolor[HTML]{EFEFEF} & \textbf{7} & \textbf{6} & \textbf{5} & \textbf{4} & \textbf{3} & \textbf{2} & \textbf{1} & \textbf{} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} \\ \cline{1-1} \cline{3-10}
+			Opis & \multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}\textbf{START}} & \multicolumn{4}{c|}{MSB} & \multicolumn{3}{c|}{LSB} & \begin{tabular}[c]{@{}c@{}}0 = Zapis\\ 1 = Odczyt\end{tabular} & \multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}\textbf{ACK}} & \multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}c@{}}Kolejny bajt itd.\\ Dalsze wiadomości zapisu\\ lub odczytu idą tutaj.\end{tabular}}} & \multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}\textbf{STOP}} \\ \hline
+		\end{tabular}%
+	}
+	{\tytulyrozdzialow \footnotesize \caption[I$^2$C - Struktura 7-bitowego adresu] {Tabela przedstawiająca strukturę 7-bitowej adresacji w magistrali I$^2$C}}
+	\caption*{\textit{Źródło: \cite{i2cwiki}}}
+\end{table}
+\newpage
+10-bitowy adres jest podzielony na 2 segmenty - górny i dolny, które są poprzedzone specjalnym adresem, który komunikuje, że wykorzystywana jest 10-bitowa adresacja w magistrali - \textit{1111 0XX X}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.25]{images/i2c-10bit-addresing.png}
+	{\tytulyrozdzialow \footnotesize \caption[I$^2$C - Struktura 10-bitowego adresu] {Tabela przedstawiająca strukturę 10-bitowej adresacji w magistrali I$^2$C}}
+	\caption*{\textit{Źródło: \cite{i2cwiki}}}
+\end{figure}\\
+\newpage
+Przebieg czasowy protokołu I$^2$C wygląda następująco:
+\begin{enumerate}
+\item Przesył danych jest inicjowany za pomocą bitu START (S) zasygnalizowane przez podciągnięcie linii SDA w stan niski, kiedy linia SCL jest w stanie wysokim;
+\item Linia SCL jest podciągnięta do stanu niskiego, a linia SDA ustawia poziomu pierwszych bitów danych utrzymując linię SCL w stanie niskim (cała długość niebieskiego prostokąta);
+\item Dane są próbkowane (odbierane) kiedy linia SCL jest w stanie wzrastającego zbocza dla pierwszego bitu. Żeby bit był poprawny, SDA nie może zmienić swojego stanu między wzrastającym zboczem linii SCL oraz następującym opadem zbocza (cała długość zielonego prostokąta);
+\item Powyższa czynność jest powtarzana dla każdego kolejnego bitu;
+\item Ostatni bit jest poprzedzony pulsem zegarowym, podczas którego linia SDA jest podciągnięta do stanu niskiego do przygotowania się do bitu STOP;
+\item Bit STOP (P) jest sygnałowany kiedy linia SCL wzrasta, poprzedzona wzrastaniem linii SDA.
+\end{enumerate}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{images/i2c-timing.png}
+	{\tytulyrozdzialow \footnotesize \caption[I$^2$C - Diagram czasowy] {Obrazek przedstawiający diagram czasowy w magistrali I$^2$C}}
+	\caption*{\textit{Źródło: \cite{i2cwiki}}}
+\end{figure}
+\newpage
 \section{UART}
-\par UART (Universal asynchronous receiver-transmitter) \cite{uartwiki}
+\par UART (Universal asynchronous receiver-transmitter) \cite{uartwiki} to asynchroniczna, szeregowa magistrala komunikacyjna, w której format danych oraz prędkość przesyłu informacji jest konfigurowalna. Poziomy logiczne sygnałów oraz metody są kontrolowane przez zewnętrzną elektronikę podłączoną do kontrolera UART. Podobny protokół, USART (Universal synchronous and asynchronous receiver-transmitter) wspiera komunikację synchroniczną.
+\par UART bierze bajty danych i przesyła indywidualne bity sekwencyjnie. W miejscu docelowym, urządzenie odbiorcze UART "buduje" dane na nowo z przybyłych bitów informacji w całe bajty. Każdy układ UART zawiera rejestr przesuwny, który odpowiada za przetwarzanie informacji między równoległą  a szeregową formą danych. Komunikacja może odbywać się w jednym z 3 trybów:
+\begin{itemize}
+	\item \textit{Simplex} - Tylko w jedną stronę, bez nadzoru dla urządzenia odbiorczego do wysyłu danych zwrotnych do urządzenia transmitującego;
+	\item \textit{Half duplex} - Urządzenia zmieniają się miejscami przy przesyle danych - raz jedno wysyła, raz drugie;
+	\item \textit{Full duplex} - Urządzenia wysyłają i odbierają dane w tym samym czasie.
+\end{itemize}
+\par W stanie oczekiwania, kiedy nie są wysyłane dane, linie są w stanie logicznym wysokim. Jest to pozostałość historyczna z telegrafów, gdzie linia była utrzymywana w stanie wysokim, żeby pokazać, iż linia i transmiter nie były uszkodzone.Każda część informacji jest opakowana jako bit START (logiczne 0), bity danych, opcjonalnie bit parzystości oraz jeden lub kilka bitów STOP.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{images/uart-timing-diagram.png}
+	{\tytulyrozdzialow \footnotesize \caption[UART - Diagram czasowy] {Obrazek przedstawiający diagram czasowy w magistrali UART}}
+	\caption*{\textit{Źródło: \cite{uartwiki}}}
+\end{figure}
+\par Bit START sygnalizuje urządzenie odbiorcze o tym, że nowa częśc informacji nadchodzi. Kolejne 5 do 9 bitów, w zależności od odu który przyjęto, reprezentuje tą część danych. Jeśli bit parzystości został użyty, będzie umieszczony po wszystkich bitach danych. Kolejne 1 lub 2 bity zawsze są w oznaczonej pozycji (Logiczna jedynka) i nazwane bitem (lub bitami) STOP. Informują one moduł odbiorczy o tym, że ciąg znaków został ukończony.
+\par UART składa się z kilku kluczowych elementów oraz ewentualnych, opcjonalnych dodatków, które rozszerzają możliwości magistrali w różny sposób.
+Urządzenie  do obsługi protokołu UART wymaga:
+\begin{itemize}
+	\item Generator sygnału zegara, zazwyczaj wielokrotność prędkośći przesyłu danych dla umożliwienia próbkowania w środku czasu trwania bitu;
+	\item Wejśćiowe i wyjśćiowe rejestry przesuwne;
+	\item Kontrola przesyłu/odbioru danych;
+	\item Logika kontrolijąca zapis/odczyt danych.
+\end{itemize}
+Dodatkowo, można wyposażyć protokół w dodatkowe bloki funkcyjne, takie jak:
+\begin{itemize}
+	\item Bufory przesyłu/odbioru danych;
+	\item Bufor magistrali danych systemowych;
+	\item Bufor pamięci typu FIFO (First-in, first-out);
+	\item Sygnały potrzebne dla zewnętrznego kontrolera DMA (Direct Memory Access);
+	\item Zintegrowana magistrala zarządzająca kontrolerem DMA.
+\end{itemize}
+\par UART posiada kilka specjalnych zdarzeń, które mogą wystąpić podczas transmisji. Są to:
+\begin{itemize}
+	\item Błąd przekroczenia (Overrun error) -Odbiornik nie może przetworzyć znaku który przybył przed kolejnym znakiem, który nadchodzi;
+	\item Błąd niedociągnięcia (Underrun error) - Nadajnik skończył wysyłać dane i bufor przesyłu jest pusty;
+	\item Błąd obramowania (Framing error) - Urządzenie nie "widzi" bitu STOP w oczekiwanym czasie jego występowania;
+	\item Błąd parzystości (Parity error) - Bit parzystości nie zgadza się między odbiornikiem a nadajnikiem;
+	\item Zerwanie transmisji (Break condition) - Wejście odbiornika jest w ,,odstępie" (Stan niski) dłużej niż przewidywany czas oczekiwania, zazwyczaj dłużej niż długość znaku.
+\end{itemize}
 \newpage
 \chapter{Schemat funkcjonalny}
-
+\par Zaprojektowane i wykonane urządzenie składa się z 3 głównych części - Dwóch różnych, wybieranych przez użytkownika źródeł zasilania (Zasilaczem lub baterią), sekcji zasilania mikrokontrolera i sensorów, oraz samego ESP8266EX i połączeń do wyprowadzeń dla czujników. Zasilanie jest czterokanałowe dla zapewnienia stabilności napięcia dla każdego ważnego układu w projekcie. Przełącznik pozwala na przełączanie między łądowaniem baterii a zasilaniem całej płyty głównej. Panel słoneczny jest bezpośrednio podłączony do kontrolera ładowania. 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{images/block-schematic.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat blokowy] {Obrazek przedstawiający schemat blokowy urządzenia}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Wykorzystano baterię LiFePO4, które pozwalają na bardziej wydajną pracę od Li-Ion czy LiPo w temperaturach poniżej zera, ponieważ jedynie tracą około 10\% pojemności niżej zera stopni Celsjusza, nie 30+ \% jak Li-Ion czy LiPo. Wykorzystano przetwornice DC-DC typu buck-boost (push-pull) dla stabilizacji napięć z baterii LiFePO4. Mimo dużej ilości zakłóceń generowanych przez przetwornice DC-DC, posiadają o wiele wyższą sprawność od liniowych kontrolerów napięć. Dioda Schottky między baterią a przetwornicami uniemożliwi ładowania baterii napięciem 5.6V z kontrolera DC-DC który służy do zasilania całego układu przy odpowiednim ustawieniu przełącznika w tryb zasilania.
 \newpage
 \chapter{Schemat elektryczny}
 
