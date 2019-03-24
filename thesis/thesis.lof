@@ -13,6 +13,20 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Schemat blokowy}}{19}{figure.caption.18}% 
 \addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat - konektor panelu słonecznego}}{20}{figure.caption.19}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Schemat - konektor zewnętrznego ładowania/zasilania}}{20}{figure.caption.20}% 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Schemat - konwersja do 5.6V}}{22}{figure.caption.21}% 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Schemat - ładowanie akumulatora}}{23}{figure.caption.22}% 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Schemat - sekcja zasilania}}{24}{figure.caption.24}% 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Schemat - układ dopasowania}}{25}{figure.caption.25}% 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Schemat - filtracja zasilania ESP8266EX}}{25}{figure.caption.26}% 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Schemat - komunikacja ESP8266EX z resztą płytki}}{26}{figure.caption.27}% 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Schemat - sekcja ADC}}{26}{figure.caption.28}% 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Schemat - rezystory interfejsu I$^2$C}}{27}{figure.caption.29}% 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Schemat - rezystory interfejsu I$^2$C}}{27}{figure.caption.30}% 
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Schemat - konektor dla PMS7003}}{28}{figure.caption.31}% 
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Schemat - pamięć flash}}{28}{figure.caption.32}% 
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Schemat - programowanie wewnątrzukładowe}}{29}{figure.caption.33}% 
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
