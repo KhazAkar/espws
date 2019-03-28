@@ -1,33 +1,37 @@
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces ESP8266EX}}{4}{figure.caption.2}% 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces ESP8266EX - opis wyprowadzeń}}{5}{figure.caption.3}% 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces BME280}}{9}{figure.caption.7}% 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces BME280 - Moduł}}{9}{figure.caption.8}% 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces PMS7003}}{11}{figure.caption.9}% 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces PMS7003 - pinout}}{12}{figure.caption.10}% 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces ESP8266EX}}{5}{figure.caption.2}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces ESP8266EX - opis wyprowadzeń}}{6}{figure.caption.3}% 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces BME280}}{10}{figure.caption.7}% 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces BME280 - Moduł}}{10}{figure.caption.8}% 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces PMS7003}}{12}{figure.caption.9}% 
+\contentsline {figure}{\numberline {2.6}{\ignorespaces PMS7003 - pinout}}{13}{figure.caption.10}% 
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces I$^2$C - Struktura 10-bitowego adresu}}{15}{figure.caption.15}% 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces I$^2$C - Diagram czasowy}}{16}{figure.caption.16}% 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces UART - Diagram czasowy}}{17}{figure.caption.17}% 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces I$^2$C - Struktura 10-bitowego adresu}}{16}{figure.caption.15}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces I$^2$C - Diagram czasowy}}{17}{figure.caption.16}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces UART - Diagram czasowy}}{18}{figure.caption.17}% 
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Schemat blokowy}}{19}{figure.caption.18}% 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Schemat blokowy}}{20}{figure.caption.18}% 
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat - konektor panelu słonecznego}}{20}{figure.caption.19}% 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Schemat - konektor zewnętrznego ładowania/zasilania}}{20}{figure.caption.20}% 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Schemat - konwersja do 5.6V}}{22}{figure.caption.21}% 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat - ogólny przegląd}}{21}{figure.caption.19}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Schemat - konektor panelu słonecznego}}{22}{figure.caption.20}% 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Schemat - konektor zewnętrznego ładowania/zasilania}}{22}{figure.caption.21}% 
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Schemat - ładowanie akumulatora}}{23}{figure.caption.22}% 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Schemat - sekcja zasilania}}{24}{figure.caption.24}% 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Schemat - układ dopasowania}}{25}{figure.caption.25}% 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Schemat - filtracja zasilania ESP8266EX}}{25}{figure.caption.26}% 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Schemat - komunikacja ESP8266EX z resztą płytki}}{26}{figure.caption.27}% 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Schemat - sekcja ADC}}{26}{figure.caption.28}% 
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Schemat - rezystory interfejsu I$^2$C}}{27}{figure.caption.29}% 
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Schemat - rezystory interfejsu I$^2$C}}{27}{figure.caption.30}% 
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Schemat - konektor dla PMS7003}}{28}{figure.caption.31}% 
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Schemat - pamięć flash}}{28}{figure.caption.32}% 
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Schemat - programowanie wewnątrzukładowe}}{29}{figure.caption.33}% 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Schemat - konwersja do 5.6V}}{24}{figure.caption.24}% 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Schemat - konektory dla sensorów}}{25}{figure.caption.25}% 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Schemat - układ dystrybucji zasilania}}{26}{figure.caption.26}% 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Schemat - sekcja ADC}}{27}{figure.caption.27}% 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Schemat - rezystory interfejsu I$^2$C}}{27}{figure.caption.28}% 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Schemat - pamięć flash}}{28}{figure.caption.29}% 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Schemat - komunikacja ESP8266EX z resztą płytki}}{28}{figure.caption.30}% 
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Schemat - sieć dopasowania dla anteny}}{29}{figure.caption.31}% 
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Schemat - filtracja zasilania ESP8266EX}}{29}{figure.caption.32}% 
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Schemat - programowanie wewnątrzukładowe}}{30}{figure.caption.33}% 
 \addvspace {10pt}
 \addvspace {10pt}
-\addvspace {10pt}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Zdjęcie - układy scalone}}{32}{figure.caption.34}% 
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Zdjęcie - ukończona płytka}}{32}{figure.caption.35}% 
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Zdjęcie - wnętrze projektu}}{33}{figure.caption.36}% 
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Zdjęcie - wygląd projektu}}{33}{figure.caption.37}% 
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Pomiar - zasilanie ESP8266}}{34}{figure.caption.38}% 
 \addvspace {10pt}

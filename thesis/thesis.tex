@@ -15,6 +15,7 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
 \usepackage{pdfpages}
+\usepackage[section]{placeins}
 \usepackage[
 bookmarks=false,
 pdfpagelabels=false,
@@ -28,6 +29,7 @@ hidelinks
 \renewcommand{\chaptername}{} 
 % Konwersja znaku mikro z matematyki na tekst
 \sisetup{math-micro=\text{µ},text-micro=µ} 
+% Ustawienie wcięć w paragrafach
 % Ustawienie czcionki Arial 
 \newfontfamily{\tytulyrozdzialow}{Arial} 
 % Czionka TMR dla całego tekstu
@@ -70,14 +72,12 @@ hidelinks
 	\hspace{\parindent} Celem pracy jest zaprojektowanie i zrealizowanie stacji meteorologicznej opartej o mikroprocesor ESP8266, złożonej z kilku modułów. Aby zrealizować założony cel, zrealizowane zostały następujące zadania:
 	\begin{itemize}{}{}
 		\item Zaprojektowanie i wykonanie płyty głównej z mikrokontrolerem ESP8266EX dla przetwarzania informacji z sensorów oraz sterowania zasilaniem całego urządzenia;
-		\item Zaprojektowanie i wykonanie anemometru do pomiaru kierunku i prędkości wiatru ze względów na koszty, ponieważ gotowe są zbyt drogie w stosunku do reszty;
 		\item Zaimplementowanie sensora firmy BOSCH o nazwie BME280, który służy do odczytu temperatury, ciśnienia i wilgotności powietrza;
 		\item Zaimplementowanie czujnika firmy PLANTOWER o nazwie PMS7003, który mierzy ilość pyłu zawieszonego w powietrzu, o wielkości PM1.0, PM2.5 oraz PM10, mierzone w \si\micro g/m$^{3}$.
 	\end{itemize}
 	\par W kolejnych rozdziałach pracy przedstawiono schemat blokowy urządzenia oraz ogólny opis poszczególnych modułów wykorzystanych do zbudowania tego urządzenia, wliczając w to charakterystyki głównych komponentów dla każdego modułu. Udokumentowane zostało m.in. konfiguracja środowiska, które zostało wykorzystana do stworzenia tego projektu.
 	\par Przeanalizowano szczegółowo schemat urządzenia, a konkretnie płyty głównej, sekcji zasilania dla wykorzystanych sensorów oraz innych elementów niezbędnych do realizacji projektu. Poddana dokładnej analizie będzie każda z części schematu, takie jak sekcja zasilania czy połączeniowa między płytą główną a sensorami.
-	\par Przedstawiono i opisano algorytmy oraz kod źródłowy programu sterującego stacją pogodową oraz omówiono protokoły komunikacyjne. Wykonuje on wiele zadań, m.in. odczytuje dane z sensorów czy kontroluje układy zasilania poszczególnych części.
-	\par W przedostatnim rozdziale przedstawiono krótko projekt anemometru służącego do pomiaru prędkości i kierunku wiatru. Omówiony i opisany został schemat blokowy anemometru i jego elektryczna reprezentacja.
+	\par  W przedostatnim rozdziale przedstawiono i opisano algorytmy oraz kod źródłowy programu sterującego stacją pogodową oraz omówiono protokoły komunikacyjne. Wykonuje on wiele zadań, m.in. odczytuje dane z sensorów czy kontroluje układy zasilania poszczególnych części.
 	\par W ostatnim rozdziale przedstawione zostały wyniki badań wykonanego modelu stacji pogodowej.
 
 \chapter{Elementy składowe projektu} 
@@ -418,7 +418,7 @@ Dodatkowo, można wyposażyć protokół w dodatkowe bloki funkcyjne, takie jak:
 \par Zaprojektowane i wykonane urządzenie składa się z 3 głównych części - Dwóch różnych, wybieranych przez użytkownika źródeł zasilania (Zasilaczem lub baterią), sekcji zasilania mikrokontrolera i sensorów, oraz samego ESP8266EX i połączeń do wyprowadzeń dla czujników. Zasilanie jest czterokanałowe dla zapewnienia stabilności napięcia dla każdego ważnego układu w projekcie. Przełącznik pozwala na przełączanie między łądowaniem baterii a zasilaniem całej płyty głównej. Panel słoneczny jest bezpośrednio podłączony do kontrolera ładowania. 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.35]{images/block-schematic.png}
+	\includegraphics[scale=0.3]{images/block-schematic.png}
 	{\tytulyrozdzialow \footnotesize \caption[Schemat blokowy] {Obrazek przedstawiający schemat blokowy urządzenia}}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
@@ -426,33 +426,36 @@ Dodatkowo, można wyposażyć protokół w dodatkowe bloki funkcyjne, takie jak:
 \newpage
 \chapter{Schemat elektryczny}
 \par Schemat został podzielony na bloki funkcyjne, które zostały szczegółowo omówione podczas ich prezencji. Wykorzystane oprogramowanie do narysowania schematu oraz zaprojektowania płytki drukowanej nazywa się KiCAD \cite{kicad}. Jest to multiplatformowe, darmowe i otwartoźródłowe (FOSS) oprogramowanie do projektowania elektroniki na Windowsa, macOS i Linuksa.
+\section{Ogólny przegląd}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.15]{images/sch/sch-01.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - ogólny przegląd] {Obrazek przedstawiający ogólny przegląd schematu projektu}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Przedstawiono ogólny zarys całego projektu. Jest to schemat nadrzędny. Wykorzystano tzw. schematy hierarchiczne dla uporządkowania całości oraz dodania możliwości wykorzystania powstałych ,,modułów'' w innych projektach, co znacząco przyspiesza projektowanie przyszłych urządzeń, które wykorzystują np. ESP8266EX zastosowany w tym projekcie.
+\newpage
 \section{Panel słoneczny}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.3]{images/sch/sch-01.png}
+	\includegraphics[scale=0.3]{images/sch/sch-02.png}
 	{\tytulyrozdzialow \footnotesize \caption[Schemat - konektor panelu słonecznego] {Obrazek przedstawiający wycinek schematu z konektorem dla panelu słonecznego }}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
 \par Wykorzystano 2 pinowy konektor do podłączenia przewodów do panelu słonecznego. Zaciska się połączenie między płytką drukowaną a przewodami za pomocą śrub w konektorze, który może obsłużyć maksymalnie 300V i 18A. Oznaczono również go jako źródło zasilania dla 12V linii, prowadzącej do układu ładowania baterii LiFePO4 za pomocą energii słonecznej.
+\section{Zewnętrzne źródło zasilania}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.8]{images/sch/sch-02.png}
+	\includegraphics[scale=0.3]{images/sch/sch-03.png}
 	{\tytulyrozdzialow \footnotesize \caption[Schemat - konektor zewnętrznego ładowania/zasilania] {Obrazek przedstawiający wycinek schematu z konektorem dla zewnętrznego zasilacza do ładowania lub zasilania układu }}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
 \par Zasilanie 9V 3A to standardowy, okrągły konektor typu DC, 5.5mm, przystosowany do napięć rzędu 24V i prądu rzędu 8A, z dodatkową osłoną na gniazdo. Podłączone zostały kondensatory do filtracji zasilania, a po nich - przełącznik do wyboru między zasilaniem całości układu a ładowaniem baterii.
 \newpage
+\section{Ładowanie akumulatora LiFePO4}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{images/sch/sch-03.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - konwersja do 5.6V] {Obrazek przedstawiający wycinek schematu z konwersją napięcia 9V do 5.6V dla zewnętrznego zasilania lub ładowania płytki głównej.}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Kondensator 10µF wykorzystano jako kondensator odsprzęgający dla układu konwertera DC-DC. Kolejny, o wartości 680pF posłużył do zapewnienia poprawnego działania przetwornicy, tak jak rezystor o wartości 100 kOhm podłączony do pinu PG (Power Good). Rezystory 1.07 MOhm oraz 180 kOhm ustawiły napięcie wyjściowe konwertera typu buck. Kondensator o wartości 22µF był niezbędny do prawidłowego obciążenia przetwornicy i filtracji wyjściowego napięcia. Cewka o wartości 2.2µH to element przechowujący energię dla układu do konwersji napięć.
-\newpage
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.45]{images/sch/sch-04.png}
+	\includegraphics[scale=0.2]{images/sch/sch-04.png}
 	{\tytulyrozdzialow \footnotesize \caption[Schemat - ładowanie akumulatora] {Obrazek przedstawiający wycinek schematu z układem ładowania akumulatora LiFePO4}}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
@@ -476,83 +479,94 @@ Dodatkowo, można wyposażyć protokół w dodatkowe bloki funkcyjne, takie jak:
 	{\tytulyrozdzialow \footnotesize \caption[LT3652 - Sygnały statusu] {Tabela przedstawiająca sygnały wysyłane przez kontroler ładowania do mikrokontrolera.}}
 	\caption*{\textit{Źródło: \cite{lt3652}}}
 \end{table}
+\section{Konwersja z 9V do 5.6V}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{images/sch/sch-05.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - konwersja do 5.6V] {Obrazek przedstawiający wycinek schematu z konwersją napięcia 9V do 5.6V dla zewnętrznego zasilania lub ładowania płytki głównej.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Kondensator 10µF wykorzystano jako kondensator odsprzęgający dla układu konwertera DC-DC. Kolejny, o wartości 680pF posłużył do zapewnienia poprawnego działania przetwornicy, tak jak rezystor o wartości 100 kOhm podłączony do pinu PG (Power Good). Rezystory 1.07 MOhm oraz 180 kOhm ustawiły napięcie wyjściowe konwertera typu buck. Kondensator o wartości 22µF był niezbędny do prawidłowego obciążenia przetwornicy i filtracji wyjściowego napięcia. Cewka o wartości 2.2µH to element przechowujący energię dla układu do konwersji napięć.
 \newpage
+\section{Konektory dla sensorów pogodowych}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.35]{images/sch/sch-05.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - sekcja zasilania] {Obrazek przedstawiający wycinek schematu z sekcją zasilania najważniejszych układów płytki.}}
+	\includegraphics[scale=0.15]{images/sch/sch-06.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - konektory dla sensorów] {Obrazek przedstawiający wycinek schematu z konektorami dla sensorów.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Przedstawiono tutaj połączenia między ESP8266EX a sensorami. Wykorzystano konektor 2-rzędowy, 5-kolumnowy dla PMS7003 oraz dwa 4 pinowe konektory 2.54mm. Dzielnik rezystorowy wykorzystano dla zmniejszenia napięcia zasilania PMS7003 z 5V do 3.3V, ponieważ komunikacja odbywa się na napięciu niższym niż napięcie zasilania czujnika.
+Wykorzystano również rezystory podciągające o wartości 10kOhm dla linii SET i RESET, co zostało podane w nocie katalogowej tego sensora \cite{pms7003datasheet}.
+\par Sensory wykorzystujące protokół I$^2$C nie wymagają tego typu zabiegów - zasilane są i komunikują się tym samym napięciem, wynoszącym 3.3V.
+\par Dodano również punkty testowe dla obu protokołów dla obserwacji komunikacji między ESP8266EX a sensorami.
+\newpage
+\section{Wewnętrzny system dystrybucji zasilania}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.15]{images/sch/sch-07.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - układ dystrybucji zasilania] {Obrazek przedstawiający wycinek schematu z układem dystrybucji zasilania.}}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
 \par Zastosowano 4 kanały zasilania - 3 kanały z napięciem wyjściowym 3.3V oraz 1 kanał z napięciem wyjściowym 5V. Linie 3.3V dostarczają napięcie dla ESP8266EX, anemometru oraz sensora BME280. Rozdzielono je dla zapewnienia maksymalnej stabilności napięc i prądów. Wykorzystano diody typu Schottky dla separacji linii wejściowych zasilania dla konwerterów DC-DC typu push-pull. Kondensatory o wartości 22µF działały jako odsprzęgające dla poprawnego działania przetwornic buck-boost. 
 \par Wyprowadzono sygnały kontrolujące konwertery do mikroprocesora, oprócz jednego, który zasila ten mikrokontroler. Przetwornica dla BME280 jest wprowadzona w stan oszczędzania energii, ponieważ sensor BME280 pobiera bardzo małe ilości prądu. Zrobiono to dla podniesienia sprawności kontrolera. 
-\par Wykorzystane przetwornice to RT6150 firmy Richtek \cite{rt6150}. Ich maksymalne napięcie wejściowe wynosi 5.5V, a maksymalne napięcie wyjściowe - 5.5V. Maksymalny prąd wyjściowy wynosi 800 mA. Dzielnik rezystorowy na wyjściu przetwornicy jest potrzebny do ustalenia napięcia wyjściowego dla wykorzystywanych układów.
+\par Wykorzystane networking to RT6150 firmy Richtek \cite{rt6150}. Ich maksymalne napięcie wejściowe wynosi 5.5V, a maksymalne napięcie wyjściowe - 5.5V. Maksymalny prąd wyjściowy wynosi 800 mA. Dzielnik rezystorowy na wyjściu przetwornicy jest potrzebny do ustalenia napięcia wyjściowego dla wykorzystywanych układów.
 \newpage
+\section{Pomiar napięcia baterii pinem ADC}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=1.5]{images/sch/sch-06.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - układ dopasowania] {Obrazek przedstawiający wycinek schematu z układem dopasowującym dla anteny.}}
+	\includegraphics[scale=0.3]{images/sch/sch-08.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - sekcja ADC] {Obrazek przedstawiający wycinek schematu z pomiarem napięcia baterii przez ESP8266EX.}}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
-\par Wartości elementów wykorzystano z tzw. Hardware Design Guidelines dla ESP8266EX \cite{esp8266exhdg} dla dopasowania anteny Wi-Fi do wykorzystanego układu. Wykorzystano konektor SMA dla anteny Wi-Fi.
+\par Zastosowano prosty dzielnik rezystorowy do pomiaru napięcia baterii przez ESP8266EX. Maksymalne napięcie wejściowe pinu ADC w tym mikrokontrolerze to 1V \cite{esp8266datasheet}. Zastosowane wartości to 100 kOhm i 37 kOhm.
+\section{Rezystory podciągające dla magistrali I$^2$C}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=1.5]{images/sch/sch-07.png}
+	\includegraphics[scale=0.25]{images/sch/sch-09.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - rezystory interfejsu I$^2$C] {Obrazek przedstawiający wycinek schematu z rezystorami podciągającymi dla magistrali I$^2$C}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Zastosowano rezystory o wartości 2 kOhm jako podciągające do linii zasilania w celu zapewnienia maksymalnej możliwej prędkości transmisji danych w magistrali I$^2$C.
+\newpage
+\section{Pamięć Flash dla ESP8266EX}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.2]{images/sch/sch-10.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - pamięć flash] {Obrazek przedstawiający wycinek schematu z pamięcią flash dla ESP8266EX}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Podłączony został kondensator odsprzęgający o wartości 100nF dla zwiększenia stabilności jego działania. Komunikuje się po magistrali SPI z ESP8266EX. Wykorzystana pojemność to 32 MiB, czyli 4 MB. Umożliwia to napisanie rozbudowanego oprogramowania wewnętrznego do obsługi czujników oraz strony WWW.
+
+\section{Linie wejść/wyjść ESP8266EX}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.2]{images/sch/sch-11.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - komunikacja ESP8266EX z resztą płytki] {Obrazek przedstawiający wycinek schematu z komunikacją ESP8266EX z resztą płytki drukowanej.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Wykorzystano trzy protokoły komunikacyjne - I$^2$C dla anemometru i BME280, UART dla PMS7003 oraz SPI dla pamięci flash. Zastosowano rezystory terminacyjne 200 ohm dla linii SPI, a 499 ohm dla UART - zgodnie z zaleceniami z Hardware Design Guidelines \cite{esp8266exhdg}. 
+\par Pamięć flash komunikuje się z ESP8266EX w trybie QIO, najszybszym z możliwych. Dostępne są również inne tryby, takie jak QOUT,DIO oraz DOUT.
+\par Wyprowadzono również pin PRG, który umożliwia wprowadzenie ESP8266EX w tryb programowania pamięci flash.
+\par Sygnały {$\sim$CHARGE} i {$\sim$FAULT} pochodzą z kontrolera ładowania akumulatora LT3652EDD.
+\newpage
+\section{Sieć dopasowująca dla anteny Wi-Fi}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{images/sch/sch-12.png}
+	{\tytulyrozdzialow \footnotesize \caption[Schemat - sieć dopasowania dla anteny] {Obrazek przedstawiający wycinek schematu z siecią dopasowującą dla anteny Wi-Fi}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Wartości elementów wykorzystano z tzw. Hardware Design Guidelines dla ESP8266EX \cite{esp8266exhdg} dla dopasowania anteny Wi-Fi do wykorzystanego układu. Wykorzystano konektor SMA dla anteny Wi-Fi dla możliwośći podpięcia różnych anten, co daje więcej możliwości w zakresie regulacji zasięgu.
+\section{Filtracja zasilania ESP8266EX}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{images/sch/sch-13.png}
 	{\tytulyrozdzialow \footnotesize \caption[Schemat - filtracja zasilania ESP8266EX] {Obrazek przedstawiający wycinek schematu z filtracją zasilania dla ESP8266EX.}}
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
 \par ESP8266EX posiada 3 różne stopnie zasilania. VDD3P3 wymaga 2 kondensatorów i cewki,VDDA i VDDD jedynie kondensator, a VDDPST - nic. Rezystor podłączony do linii VDDA służy do utrzymania ESP8266EX w stanie działania - jest to rezystor podciągający.
 \newpage
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.55]{images/sch/sch-08.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - komunikacja ESP8266EX z resztą płytki] {Obrazek przedstawiający wycinek schematu z komunikacją ESP8266EX z resztą płytki drukowanej.}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Wykorzystano trzy protokoły komunikacyjne - I$^2$C dla anemometru i BME280, UART dla PMS7003 oraz SPI dla pamięci flash. Zastosowano rezystory terminacyjne 200 ohm dla linii SPI, a 499 ohm dla UART - zgodnie z zaleceniami z Hardware Design Guidelines \cite{esp8266exhdg}. 
-\par Pamięć flash komunikuje się z ESP8266EX w trybie QIO, najszybszym z możliwych. Pojemność flash wynosi 32 MiB, co daje 4 MB. 
-\par Wyprowadzono również pin PRG, który umożliwia wprowadzenie ESP8266EX w tryb programowania pamięci flash.
-\par Sygnały {$\sim$CHARGE} i {$\sim$FAULT} pochodzą z kontrolera ładowania akumulatora LT3652EDD.
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=1]{images/sch/sch-09.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - sekcja ADC] {Obrazek przedstawiający wycinek schematu z pomiarem napięcia baterii przez ESP8266EX.}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Zastosowano prosty dzielnik rezystorowy do pomiaru napięcia baterii przez ESP8266EX. Maksymalne napięcie wejściowe pinu ADC w tym mikrokontrolerze to 1V \cite{esp8266datasheet}. Zastosowane wartości to 100 kOhm i 37 kOhm.
-\newpage
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.5]{images/sch/sch-10.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - rezystory interfejsu I$^2$C] {Obrazek przedstawiający wycinek schematu z rezystorami podciągającymi dla magistrali I$^2$C}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Zastosowano rezystory o wartości 2 kOhm jako podciągające do linii zasilania w celu zapewnienia maksymalnej możliwej prędkości transmisji danych w magistrali I$^2$C.
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.25]{images/sch/sch-11.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - rezystory interfejsu I$^2$C] {Obrazek przedstawiający wycinek schematu z rezystorami podciągającymi dla magistrali I$^2$C}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Wykorzystano 4-pinowe konektory dla urządzeń wykorzystujących magistralę I$^2$C. 
-\par Do jednego z nich podpięto punkty testowe dla łatwiejszych pomiarów urządzeń wykorzystujących ten protokół.
-\newpage
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.3]{images/sch/sch-12.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - konektor dla PMS7003] {Obrazek przedstawiający wycinek schematu z konektorem dla czujnika PMS7003}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Zastosowano tutaj 10 pinowy konektor dla sensora PMS7003. Podłączono również 2 punkty testujące, RX i TX, do pomiarów magistrali UART.
-\par Wykorzystano również dzielnik rezystorowy, ponieważ linie RX i TX wymagają napięcia 3.3V, nie 5V jak zasilanie samego czujnika.
-\par Podłączono również rezystory podciągające o wartości 10k dla pinów SET i RESET czujnika, zgodnie z notą katalogową PMS7003 \cite{pms7003datasheet}.
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=1.2]{images/sch/sch-13.png}
-	{\tytulyrozdzialow \footnotesize \caption[Schemat - pamięć flash] {Obrazek przedstawiający wycinek schematu z pamięcią flash dla ESP8266EX}}
-	\caption*{\textit{Źródło: Opracowanie własne}}
-\end{figure}
-\par Podłączony został kondensator odsprzęgający o wartości 100nF dla zwiększenia stabilności jego działania. Komunikuje się po magistrali SPI z ESP8266EX.
-\newpage
+\section{Piny programowania ESP8266}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.4]{images/sch/sch-14.png}
@@ -566,11 +580,52 @@ Dodatkowo, można wyposażyć protokół w dodatkowe bloki funkcyjne, takie jak:
 \chapter{Kod źródłowy} 
 
 \newpage
-\chapter{Opis anemometru} 
-
-\newpage
 \chapter{Infografika} 
-
+\section{Zdjęcia urządzenia}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[scale=0.05]{images/photos/1.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[Zdjęcie - układy scalone] {Zdjęcie przedstawiający płytkę z przylutowanymi układami scalonymi}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[scale=0.05]{images/photos/2.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[Zdjęcie - ukończona płytka] {Zdjęcie przedstawiający płytkę z przylutowanymi wszystkimi elementami. Do tego odwrotnie przylutowany kondensator, który naprawiono.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[scale=0.1]{images/photos/3.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[Zdjęcie - wnętrze projektu] {Zdjęcie przedstawiający wnętrze projektu z przykręconym akumulatorem}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[scale=0.1]{images/photos/4.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[Zdjęcie - wygląd projektu] {Zdjęcie przedstawiający część zewnętrzną projektu, złożoną i gotową do pracy.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\section{Pomiar sekcji zasilania ESP8266EX}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[scale=1]{images/photos/5.jpg}
+	{\tytulyrozdzialow \footnotesize \caption[Pomiar - zasilanie ESP8266] {Zdjęcie przedstawiające pomiar linii zasilania ESP8266}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Wykorzystana przetwornica DC-DC RT6150 dała znakomite rezultaty jeśli chodzi o zasilanie projektu. Pomiar szumu pokazał, że jest on marginalny i nie wpływa na działanie całości. Zasilanie za pomocą tychże układów dało stabilne rezultaty.
+\newpage
+\chapter{Streszczenie} 
+\par Wykorzystano do projektu mikrokontroler ESP8266EX, czujnik cząsteczek stałych PMS7003 oraz sensor temperatury, wilgoci oraz ciśnienia BME280. Wyprowadzono również konektor dla czujnika prędkości i kierunku wiatru dla przyszłej rozbudowy.BME280 wykorzystuje protokół I$^2$C, a PMS7003 - UART. Anemometr powinien być zasilany napięciem 3.3V oraz wykorzystywać protokół I$^2$C do komunikacji z mikroprocesorem.
+\par Zaprojektowana i wykonana została płytka drukowana (PCB). Zaprojektowana została za pomocą KiCAD \cite{kicad}, a wykonana przez firmę JLCPCB - \url{jlcpcb.com} w cenie 200 PLN, licząc przesyłkę firmą kurierską UPS. Elementy zamówiono na stronie DigiKey - \url{digikey.pl}, które przyszły z USA firmą kurierską UPS.
+\par Oprogramowanie zawiera obsługę czujnika PMS7003, BME280 oraz kontrolę przetwornicami DC-DC RT6150 firmy Richtek dla lepszego zarządzania energią całego układu.
+Wykorzystano również pin analogowy ESP8266EX dla pomiaru stanu baterii przez dzielnik rezystorowy.
+\par Układ może być zasilany na 2 sposoby - z zewnętrznego zasilacza o napięciu 9V i prądzie 3A oraz za pomocą baterii LiFePO4 o napięciu nominalnym 3.2V. Akumulator można ładować panelem słonecznym o napięciu 12V podczas obciążenia oraz zewnętrznym, 9V 3A zasilaczem. Istnieje możliwość wyboru, czy zewnętrzny zasilacz ma ładować akumulator, czy zasilać cały układ.
+\par Do programowania ESP8266EX wykorzystywany jest protokół UART oraz napięcie zasilania o wartości 3.3V.
+Domyślna prędkość komunikacji ESP8266EX ze ,,światem'' wynosi 74880 bodów dla rezonatora kwarcowego 26 MHz. Dla 40 MHz rezonatora ta prędkość wynosi 115200 bodów.
+\par ESP8266EX obsługuje łączność Wi-Fi w trybach b/g/n - jako punkt dostępu, klient oraz tryb podsłuchu.
+\par ESP8266EX nie posiada wbudowanej pamięci flash dla przechowywania programów - niezbędna jest zewnętrzna pamięć. Jego odmiana, ESP8285 - posiada wbudowane 1 MiB pamięci typu flash.
+\par Wykorzystano zintegrowane środowisko programistyczne Eclipse IDE oraz biblioteki Arduino.
 \newpage
 \listoffigures
 \newpage
@@ -652,8 +707,4 @@ Dodatkowo, można wyposażyć protokół w dodatkowe bloki funkcyjne, takie jak:
 	Zebrane 3 marca 2019,
 	\url{https://www.espressif.com/sites/default/files/documentation/esp8266_hardware_design_guidelines_en.pdf}
 \end{thebibliography}
-
-\newpage
-\chapter{Streszczenie} 
-
 \end{document}

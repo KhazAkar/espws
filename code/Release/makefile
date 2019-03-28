@@ -9,6 +9,12 @@ RM := rm
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir.mk
+-include libraries/Wire/subdir.mk
+-include libraries/SoftwareSerial/subdir.mk
+-include libraries/SPI/subdir.mk
+-include libraries/PMS_Library/src/subdir.mk
+-include libraries/ESP8266WiFi/src/subdir.mk
+-include libraries/Adafruit_BME280_Library/subdir.mk
 -include core/core/umm_malloc/subdir.mk
 -include core/core/spiffs/subdir.mk
 -include core/core/libb64/subdir.mk

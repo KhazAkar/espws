@@ -26,6 +26,11 @@ core/core/Esp-frag.cpp.o: \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/string.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/user_config.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/pgmspace.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/pgmspace.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/ets_sys.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/eagle_soc.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/umm_malloc/umm_malloc_cfg.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/coredecls.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/cont.h \
@@ -35,7 +40,6 @@ core/core/Esp-frag.cpp.o: \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/types.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/machine/types.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/stdio.h \
- /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/pgmspace.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/math.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/stdlib_noniso.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/binary.h \
@@ -45,10 +49,6 @@ core/core/Esp-frag.cpp.o: \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/core_esp8266_features.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/core_esp8266_version.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/core_version.h \
- /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/pgmspace.h \
- /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/ets_sys.h \
- /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h \
- /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/eagle_soc.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/WCharacter.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/WString.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/HardwareSerial.h \
@@ -123,6 +123,16 @@ core/core/Esp-frag.cpp.o: \
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h:
 
+/home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/pgmspace.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/pgmspace.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/ets_sys.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/eagle_soc.h:
+
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/umm_malloc/umm_malloc_cfg.h:
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/coredecls.h:
@@ -141,8 +151,6 @@ core/core/Esp-frag.cpp.o: \
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/stdio.h:
 
-/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/pgmspace.h:
-
 /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/math.h:
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/stdlib_noniso.h:
@@ -160,14 +168,6 @@ core/core/Esp-frag.cpp.o: \
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/core_esp8266_version.h:
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/core_version.h:
-
-/home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/pgmspace.h:
-
-/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/ets_sys.h:
-
-/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h:
-
-/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/eagle_soc.h:
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/WCharacter.h:
 

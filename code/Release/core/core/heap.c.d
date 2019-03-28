@@ -25,7 +25,12 @@ core/core/heap.c.o: \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/string.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/string.h \
  /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/user_config.h \
- /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/pgmspace.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/pgmspace.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/ets_sys.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h \
+ /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/eagle_soc.h
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/stdlib.h:
 
@@ -78,3 +83,13 @@ core/core/heap.c.o: \
 /home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/user_config.h:
 
 /home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse/arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/cores/esp8266/pgmspace.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/libc/xtensa-lx106-elf/include/sys/pgmspace.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/ets_sys.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/c_types.h:
+
+/home/khazakar/eclipse/cpp-latest-released/eclipse//arduinoPlugin/packages/esp8266/hardware/esp8266/2.5.0/tools/sdk/include/eagle_soc.h:

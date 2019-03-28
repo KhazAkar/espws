@@ -38,5 +38,11 @@ core/core \
 core/core/libb64 \
 core/core/spiffs \
 core/core/umm_malloc \
+libraries/Adafruit_BME280_Library \
+libraries/ESP8266WiFi/src \
+libraries/PMS_Library/src \
+libraries/SPI \
+libraries/SoftwareSerial \
+libraries/Wire \
 . \
 

@@ -1,17 +1,16 @@
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {2.1}{\ignorespaces ESP8266EX - tryby uruchamiania}}{6}{table.caption.4}% 
-\contentsline {table}{\numberline {2.2}{\ignorespaces ESP8266EX - kanały Wi-Fi}}{7}{table.caption.5}% 
-\contentsline {table}{\numberline {2.3}{\ignorespaces ESP8266EX - pobór mocy przy łączności Wi-Fi}}{8}{table.caption.6}% 
-\contentsline {table}{\numberline {2.4}{\ignorespaces PMS7003 - Lista wyprowadzeń}}{12}{table.caption.11}% 
+\contentsline {table}{\numberline {2.1}{\ignorespaces ESP8266EX - tryby uruchamiania}}{7}{table.caption.4}% 
+\contentsline {table}{\numberline {2.2}{\ignorespaces ESP8266EX - kanały Wi-Fi}}{8}{table.caption.5}% 
+\contentsline {table}{\numberline {2.3}{\ignorespaces ESP8266EX - pobór mocy przy łączności Wi-Fi}}{9}{table.caption.6}% 
+\contentsline {table}{\numberline {2.4}{\ignorespaces PMS7003 - Lista wyprowadzeń}}{13}{table.caption.11}% 
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces I$^2$C - Stany zajętości magistrali}}{14}{table.caption.12}% 
-\contentsline {table}{\numberline {3.2}{\ignorespaces I$^2$C - Stany magistrali przy przesyle danych}}{14}{table.caption.13}% 
-\contentsline {table}{\numberline {3.3}{\ignorespaces I$^2$C - Struktura 7-bitowego adresu}}{15}{table.caption.14}% 
+\contentsline {table}{\numberline {3.1}{\ignorespaces I$^2$C - Stany zajętości magistrali}}{15}{table.caption.12}% 
+\contentsline {table}{\numberline {3.2}{\ignorespaces I$^2$C - Stany magistrali przy przesyle danych}}{15}{table.caption.13}% 
+\contentsline {table}{\numberline {3.3}{\ignorespaces I$^2$C - Struktura 7-bitowego adresu}}{16}{table.caption.14}% 
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsline {table}{\numberline {5.1}{\ignorespaces LT3652 - Sygnały statusu}}{23}{table.caption.23}% 
-\addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
