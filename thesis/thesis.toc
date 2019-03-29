@@ -24,10 +24,14 @@
 \contentsline {section}{\numberline {5.13}Filtracja zasilania ESP8266EX}{29}{section.5.13}% 
 \contentsline {section}{\numberline {5.14}Piny programowania ESP8266}{30}{section.5.14}% 
 \contentsline {chapter}{\chapternumberline {6}Kod źródłowy}{31}{chapter.6}% 
-\contentsline {chapter}{\chapternumberline {7}Infografika}{32}{chapter.7}% 
-\contentsline {section}{\numberline {7.1}Zdjęcia urządzenia}{32}{section.7.1}% 
-\contentsline {section}{\numberline {7.2}Pomiar sekcji zasilania ESP8266EX}{34}{section.7.2}% 
-\contentsline {chapter}{\chapternumberline {8}Streszczenie}{35}{chapter.8}% 
-\contentsline {chapter}{Spis rysunk\'ow}{36}{section*.39}% 
-\contentsline {chapter}{Spis tabel}{37}{section*.40}% 
-\contentsline {chapter}{Bibliografia}{38}{chapter*.41}% 
+\contentsline {section}{\numberline {6.1}Środowisko programistyczne}{31}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Kod przez rozpoczęciem}{31}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Kod rozpoczynający}{35}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Kod w pętli}{37}{section.6.4}% 
+\contentsline {chapter}{\chapternumberline {7}Infografika}{38}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Zdjęcia urządzenia}{38}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Pomiar sekcji zasilania ESP8266EX}{40}{section.7.2}% 
+\contentsline {chapter}{\chapternumberline {8}Streszczenie}{41}{chapter.8}% 
+\contentsline {chapter}{Spis rysunk\'ow}{42}{section*.41}% 
+\contentsline {chapter}{Spis tabel}{43}{section*.42}% 
+\contentsline {chapter}{Bibliografia}{44}{chapter*.43}% 

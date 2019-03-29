@@ -2,29 +2,181 @@
 #include "Adafruit_Sensor.h"
 #include "Adafruit_BME280.h"
 #include "ESP8266WiFi.h"
+#include "ESP8266WebServer.h"
 #include "Wire.h"
 #include "PMS.h"
 #include "libraries/Credentials/credentials.h"
+
+#define bme280_en 12
+#define pms7003_en 15
+
+#define sda_pin 12
+#define scl_pin 14
 
 PMS pms(Serial);
 PMS::DATA data;
 
 Adafruit_BME280 bme; // I2C mode for BME280 sensor
-float h, t, p, pin, dp;
-char temperatureFString[6];
-char dpString[6];
-char humidityString[6];
-char pressureString[7];
-char pressureInchString[6];
-// Enable WiFi web server on ESP8266
-WiFiServer server(80);
 
+String SendHTML(uint8_t bme280stat, uint8_t pms7003stat,
+	float TempStat, float HumStat, float DPStat, float PresStat,
+	float PM1Stat, float PM10Stat, float BatStat);
+
+float h, t, p, pin, dp, pm1f, pm10f, batteryVoltage;
+bool bme280status = HIGH;
+bool pms7003status = LOW;
+
+// Enable WiFi web server on ESP8266
+ESP8266WebServer server(80);
+
+void getData()
+    {
+    h = bme.readHumidity();
+    t = bme.readTemperature();
+    pm1f = data.PM_AE_UG_1_0;
+    pm10f = data.PM_AE_UG_10_0;
+    dp = t - 0.36 * (100.0 - h);
+    p = bme.readPressure() / 100.0F;
+    delay(100);
+    }
+
+void handle_OnConnect()
+    {
+    bme280status = HIGH;
+    pms7003status = LOW;
+    getData();
+    server.send(200, "text/html",
+	    SendHTML(bme280status, pms7003status, t, h, dp, p, pm1f,
+		    pm10f, batteryVoltage));
+    }
+void handle_bme280_on()
+    {
+    bme280status = HIGH;
+    server.send(200, "text/html",
+	    SendHTML(true, pms7003status, t, h, dp, p, pm1f, pm10f,
+		    batteryVoltage));
+    }
+
+void handle_bme280_off()
+    {
+    bme280status = LOW;
+    server.send(200, "text/html",
+	    SendHTML(false, pms7003status, t, h, dp, p, pm1f, pm10f,
+		    batteryVoltage));
+    }
+void handle_pms7003_on()
+    {
+    pms7003status = HIGH;
+    server.send(200, "text/html",
+	    SendHTML(bme280status, true, t, h, dp, p, pm1f, pm10f,
+		    batteryVoltage));
+    }
+void handle_pms7003_off()
+    {
+    pms7003status = LOW;
+    server.send(200, "text/html",
+	    SendHTML(bme280status, false, t, h, dp, p, pm1f, pm10f,
+		    batteryVoltage));
+    }
+void handle_NotFound()
+    {
+    server.send(404, "text/plain", "Not found");
+    }
+String SendHTML(uint8_t bme280stat, uint8_t pms7003stat,
+	float TempStat, float HumStat, float DPStat, float PresStat,
+	float PM1Stat, float PM10Stat, float BatStat)
+    {
+    String ptr = "<!DOCTYPE html> <html>\n";
+    ptr +=
+	    "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+    ptr += "<meta charset='utf-8' />";
+    ptr += "<title>Stacja pogodowa </title>\n";
+    ptr += "</head>\n";
+    ptr += "<body>\n";
+    ptr += "<h1>Stacja pogodowa oparta o ESP8266</h1>\n";
+    ptr += "<h3>Tryb klienta.</h3>\n";
+    ptr += "<table border=\"2\" width=\"456\" cellpadding=\"10\"><tbody>";
+
+    ptr += "<tr><td>";
+    ptr += "</h3><h3>Temperatura = ";
+    ptr += "</td><td>";
+    ptr += TempStat;
+    ptr += "&deg;C</td></tr>";
+
+    ptr += "<tr><td>";
+    ptr += "</h3><h3>Wilgotność =";
+    ptr += "</td><td>";
+    ptr += HumStat;
+    ptr += "%</td></tr>";
+
+    ptr += "<tr><td>";
+    ptr += "</h3><h3>Punkt rosy = ";
+    ptr += "</td><td>";
+    ptr += DPStat;
+    ptr += "&deg;C</td></tr>";
+
+    ptr += "<tr><td>";
+    ptr += "</h3><h3>Ciśnienie = ";
+    ptr += "</td><td>";
+    ptr += PresStat;
+    ptr += "hPa ";
+    ptr += "</td></tr>";
+
+    ptr += "<tr><td>";
+    ptr += "</h3><h3>PM 1.0 (ug/m3) = ";
+    ptr += "</td><td>";
+    ptr += PM1Stat;
+    ptr += "</td></tr>";
+
+    ptr += "<tr><td>";
+    ptr += "</h3><h3>PM 10 (ug/m3) = ";
+    ptr += "</td><td>";
+    ptr += PM10Stat;
+    ptr += "</td></tr>";
+
+    ptr += "<tr><td>";
+
+    ptr += "</h3><h3>Napięcie baterii =";
+    ptr += "</td><td>";
+    ptr += BatStat;
+    ptr += "</td></tr>";
+    ptr += "</tbody></table>";
+
+
+    if (bme280stat)
+	{
+	ptr +=
+		"<p>Stan BME280: WYŁ</p><a class=\"button button-off\" href=\"/bme280_off\">WYŁ.</a>\n";
+	}
+    else
+	{
+	ptr +=
+		"<p>Stan BME280: WŁ</p><a class=\"button button-on\" href=\"/bme280_on\">WŁ.</a>\n";
+	}
+
+    if (pms7003stat)
+	{
+	ptr +=
+		"<p>Stan PMS7003 - WŁ.</p><a class=\"button button-off\" href=\"/pms7003_off\">WYŁ.</a>\n";
+	}
+    else
+	{
+	ptr +=
+		"<p>Stan PMS7003: WYŁ</p><a class=\"button button-on\" href=\"/pms7003_on\">WŁ.</a>\n";
+	}
+
+    ptr += "</body>\n";
+    ptr += "</html>\n";
+    return (ptr);
+    }
 void setup()
     {
     Serial.begin(9600); // GPIO1, GPIO3 (TX/RX pin for PMS7003
     Serial1.begin(9600); // GPIO2; for debugging purposes.
-    Wire.begin(12, 14);
+    Wire.begin(sda_pin, scl_pin);
     Wire.setClock(100000); // Set I2C clock.
+    pinMode(bme280_en, OUTPUT); // Enable pin for BME280
+    pinMode(pms7003_en, OUTPUT); // Enable pin for PMS7003
     Serial1.println();
     Serial1.print("Lacze sie do: ");
     Serial.println(mySSID);
@@ -37,6 +189,15 @@ void setup()
 	}
     Serial1.println();
     Serial1.println("Wi-Fi podlaczone!!");
+    // Set multiple pages for toggling GPIOs
+
+    server.on("/", handle_OnConnect);
+    server.on("/bme280_on", handle_bme280_on);
+    server.on("/pms7003_on", handle_pms7003_on);
+    server.on("/bme280_off", handle_bme280_off);
+    server.on("/pms7003_off", handle_pms7003_off);
+    server.onNotFound(handle_NotFound);
+
 // Start of web server
     server.begin();
     Serial1.println("Serwer WWW dziala - czekanie na IP dla ESP8266EX... ");
@@ -52,84 +213,29 @@ void setup()
 	while (1)
 	    ;
 	}
-    }
-void getWeather()
-    {
-
-    h = bme.readHumidity();
-    t = bme.readTemperature();
-    dp = t - 0.36 * (100.0 - h);
-
-    p = bme.readPressure() / 100.0F;
-    pin = 0.02953 * p;
-    dtostrf(t, 5, 1, temperatureFString);
-    dtostrf(h, 5, 1, humidityString);
-    dtostrf(p, 6, 1, pressureString);
-    dtostrf(pin, 5, 2, pressureInchString);
-    dtostrf(dp, 5, 1, dpString);
-    delay(100);
-
+    Serial1.println("BME280 dziala!");
     }
 void loop()
     {
-    // Listenning for new clients
-    WiFiClient client = server.available();
-
-    if (client)
+    server.handleClient();
+    getData();
+    int analogValue = analogRead(A0) / 1000; // Setup analog pin
+    batteryVoltage = (analogValue * 137) / 37;
+    if (bme280status)
 	{
-	Serial.println("New client");
-	// bolean to locate when the http request ends
-	boolean blank_line = true;
-	while (client.connected())
-	    {
-	    if (client.available())
-		{
-		char c = client.read();
+	digitalWrite(bme280_en, HIGH);
+	}
+    else
+	{
+	digitalWrite(bme280_en, LOW);
+	}
 
-		if (c == '\n' && blank_line)
-		    {
-		    getWeather();
-		    client.println("HTTP/1.1 200 OK");
-		    client.println("Content-Type: text/html");
-		    client.println("Connection: close");
-		    client.println();
-		    // your actual web page that displays temperature
-		    client.println("<!DOCTYPE HTML>");
-		    client.println("<html>");
-		    client.println(
-			    "<head><META HTTP-EQUIV=\"refresh\" CONTENT=\"15\"></head>");
-		    client.println("<body><h1>ESP8266 Weather Web Server</h1>");
-		    client.println(
-			    "<table border=\"2\" width=\"456\" cellpadding=\"10\"><tbody><tr><td>");
-		    client.println("<h3>Temperature = ");
-		    client.println(temperatureFString);
-		    client.println("&deg;C</h3><h3>Humidity = ");
-		    client.println(humidityString);
-		    client.println("%</h3><h3>Approx. Dew Point = ");
-		    client.println(dpString);
-		    client.println("&deg;C</h3><h3>Pressure = ");
-		    client.println(pressureString);
-		    client.println("hPa (");
-		    client.println(pressureInchString);
-		    client.println(
-			    "Inch)</h3></td></tr></tbody></table></body></html>");
-		    break;
-		    }
-		if (c == '\n')
-		    {
-		    // when starts reading a new line
-		    blank_line = true;
-		    }
-		else if (c != '\r')
-		    {
-		    // when finds a character on the current line
-		    blank_line = false;
-		    }
-		}
-	    }
-	// closing the client connection
-	delay(1);
-	client.stop();
-	Serial.println("Client disconnected.");
-    }
+    if (pms7003status)
+	{
+	digitalWrite(pms7003_en, HIGH);
+	}
+    else
+	{
+	digitalWrite(pms7003_en, LOW);
+	}
     }

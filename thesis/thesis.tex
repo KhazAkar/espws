@@ -15,6 +15,7 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
 \usepackage{pdfpages}
+\usepackage{listings}
 \usepackage[section]{placeins}
 \usepackage[
 bookmarks=false,
@@ -42,6 +43,27 @@ hidelinks
 	{15pt} % Odstęp między liczbą a tekstem
 	{} 
 \setsecheadstyle{\fontsize{13pt}{15pt}\tytulyrozdzialow\bfseries} % Ustawienie stylu dla sekcji
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=C++,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
 \begin{document}
 \renewcommand{\maketitle}
 {
@@ -73,7 +95,7 @@ hidelinks
 	\begin{itemize}{}{}
 		\item Zaprojektowanie i wykonanie płyty głównej z mikrokontrolerem ESP8266EX dla przetwarzania informacji z sensorów oraz sterowania zasilaniem całego urządzenia;
 		\item Zaimplementowanie sensora firmy BOSCH o nazwie BME280, który służy do odczytu temperatury, ciśnienia i wilgotności powietrza;
-		\item Zaimplementowanie czujnika firmy PLANTOWER o nazwie PMS7003, który mierzy ilość pyłu zawieszonego w powietrzu, o wielkości PM1.0, PM2.5 oraz PM10, mierzone w \si\micro g/m$^{3}$.
+		\item Zaimplementowanie czujnika firmy PLANTOWER o nazwie PMS7003, który mierzy ilość pyłu zawieszonego w powietrzu, o wielkości PM1.0 oraz PM10, mierzone w \si\micro g/m$^{3}$.
 	\end{itemize}
 	\par W kolejnych rozdziałach pracy przedstawiono schemat blokowy urządzenia oraz ogólny opis poszczególnych modułów wykorzystanych do zbudowania tego urządzenia, wliczając w to charakterystyki głównych komponentów dla każdego modułu. Udokumentowane zostało m.in. konfiguracja środowiska, które zostało wykorzystana do stworzenia tego projektu.
 	\par Przeanalizowano szczegółowo schemat urządzenia, a konkretnie płyty głównej, sekcji zasilania dla wykorzystanych sensorów oraz innych elementów niezbędnych do realizacji projektu. Poddana dokładnej analizie będzie każda z części schematu, takie jak sekcja zasilania czy połączeniowa między płytą główną a sensorami.
@@ -578,7 +600,277 @@ Wykorzystano również rezystory podciągające o wartości 10kOhm dla linii SET
 \par Podpięto również 2 testowe pady dla inspekcji przebiegu programowania np. za pomocą analizatora stanów logicznych. 
 \newpage
 \chapter{Kod źródłowy} 
+\section{Środowisko programistyczne}
+\par Wykorzystano środowisko programistyczne o nazwie Eclipse IDE. Doinstalowano do niego wtyczkę Sloeber dla możliwości programowania za pomocą bibliotek Arduino.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.2]{images/eclipse.png}
+	{\tytulyrozdzialow \footnotesize \caption[IDE - Okno programu] {Obrazek przedstawiający okno programu Eclipse IDE, wykorzystanego do napisania programu.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
+\par Eclipse IDE jest najpopularniejszym zintegrowanym środowiskiem programistycznym wśród programistów urządzeń wbudowanych czy też ,,Internetu Rzeczy''.
+\section{Kod przez rozpoczęciem}
+\begin{lstlisting}
+#include "Arduino.h"
+#include "Adafruit_Sensor.h"
+#include "Adafruit_BME280.h"
+#include "ESP8266WiFi.h"
+#include "ESP8266WebServer.h"
+#include "Wire.h"
+#include "PMS.h"
+#include "libraries/Credentials/credentials.h"
 
+#define bme280_en 12
+#define pms7003_en 15
+
+#define sda_pin 12
+#define scl_pin 14
+
+PMS pms(Serial);
+PMS::DATA data;
+
+Adafruit_BME280 bme; // I2C mode for BME280 sensor
+
+String SendHTML(uint8_t bme280stat, uint8_t pms7003stat,
+float TempStat, float HumStat, float DPStat, float PresStat,
+float PM1Stat, float PM10Stat, float BatStat);
+
+float h, t, p, pin, dp, pm1f, pm10f, batteryVoltage;
+bool bme280status = HIGH;
+bool pms7003status = LOW;
+\end{lstlisting}
+\par Zainicjalizowano niezbędne biblioteki do obsługi wykorzystanych sensorów oraz plik nagłówkowy z wypisanym SSID sieci Wi-Fi oraz hasłem do niej.
+\begin{lstlisting}
+// Enable WiFi web server on ESP8266
+ESP8266WebServer server(80);
+
+void getData()
+{
+h = bme.readHumidity();
+t = bme.readTemperature();
+pm1f = data.PM_AE_UG_1_0;
+pm10f = data.PM_AE_UG_10_0;
+dp = t - 0.36 * (100.0 - h);
+p = bme.readPressure() / 100.0F;
+delay(100);
+}
+\end{lstlisting}
+Serwer WWW zaczął działać, a w funkcji getData\(\) pobierane są pomiary z BME280 oraz PMS7003.
+\begin{lstlisting}
+void handle_OnConnect()
+{
+bme280status = HIGH;
+pms7003status = LOW;
+getData();
+server.send(200, "text/html",
+SendHTML(bme280status, pms7003status, t, h, dp, p, pm1f,
+pm10f, batteryVoltage));
+}
+void handle_bme280_on()
+{
+bme280status = HIGH;
+server.send(200, "text/html",
+SendHTML(true, pms7003status, t, h, dp, p, pm1f, pm10f,
+batteryVoltage));
+}
+
+void handle_bme280_off()
+{
+bme280status = LOW;
+server.send(200, "text/html",
+SendHTML(false, pms7003status, t, h, dp, p, pm1f, pm10f,
+batteryVoltage));
+}
+void handle_pms7003_on()
+{
+pms7003status = HIGH;
+server.send(200, "text/html",
+SendHTML(bme280status, true, t, h, dp, p, pm1f, pm10f,
+batteryVoltage));
+}
+void handle_pms7003_off()
+{
+pms7003status = LOW;
+server.send(200, "text/html",
+SendHTML(bme280status, false, t, h, dp, p, pm1f, pm10f,
+batteryVoltage));
+}
+void handle_NotFound()
+{
+server.send(404, "text/plain", "Not found");
+}
+\end{lstlisting}
+Występuje tutaj odświeżanie pomiarów oraz statusu pinów sterująćych przetwornicami przy każdym odświeżeniu strony przez zmianę statusu pinu sterującego zasilaniem innych sekcji płytki. Ustawiono również stany początkowe pinów.
+\begin{lstlisting}
+String SendHTML(uint8_t bme280stat, uint8_t pms7003stat,
+float TempStat, float HumStat, float DPStat, float PresStat,
+float PM1Stat, float PM10Stat, float BatStat)
+{
+String ptr = "<!DOCTYPE html> <html>\n";
+ptr +=
+"<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+ptr += "<meta charset='utf-8' />";
+ptr += "<title>Stacja pogodowa </title>\n";
+ptr += "</head>\n";
+ptr += "<body>\n";
+ptr += "<h1>Stacja pogodowa oparta o ESP8266</h1>\n";
+ptr += "<h3>Tryb klienta.</h3>\n";
+ptr += "<table border=\"2\" width=\"456\" cellpadding=\"10\"><tbody>";
+
+ptr += "<tr><td>";
+ptr += "</h3><h3>Temperatura = ";
+ptr += "</td><td>";
+ptr += TempStat;
+ptr += "&deg;C</td></tr>";
+
+ptr += "<tr><td>";
+ptr += "</h3><h3>Wilgotność =";
+ptr += "</td><td>";
+ptr += HumStat;
+ptr += "%</td></tr>";
+
+ptr += "<tr><td>";
+ptr += "</h3><h3>Punkt rosy = ";
+ptr += "</td><td>";
+ptr += DPStat;
+ptr += "&deg;C</td></tr>";
+
+ptr += "<tr><td>";
+ptr += "</h3><h3>Ciśnienie = ";
+ptr += "</td><td>";
+ptr += PresStat;
+ptr += "hPa ";
+ptr += "</td></tr>";
+
+ptr += "<tr><td>";
+ptr += "</h3><h3>PM 1.0 (ug/m3) = ";
+ptr += "</td><td>";
+ptr += PM1Stat;
+ptr += "</td></tr>";
+
+ptr += "<tr><td>";
+ptr += "</h3><h3>PM 10 (ug/m3) = ";
+ptr += "</td><td>";
+ptr += PM10Stat;
+ptr += "</td></tr>";
+
+ptr += "<tr><td>";
+
+ptr += "</h3><h3>Napięcie baterii =";
+ptr += "</td><td>";
+ptr += BatStat;
+ptr += "</td></tr>";
+ptr += "</tbody></table>";
+
+
+if (bme280stat)
+{
+ptr +=
+"<p>Stan BME280: WYŁ</p><a class=\"button button-off\" href=\"/bme280_off\">WYŁ.</a>\n";
+}
+else
+{
+ptr +=
+"<p>Stan BME280: WŁ</p><a class=\"button button-on\" href=\"/bme280_on\">WŁ.</a>\n";
+}
+
+if (pms7003stat)
+{
+ptr +=
+"<p>Stan PMS7003 - WŁ.</p><a class=\"button button-off\" href=\"/pms7003_off\">WYŁ.</a>\n";
+}
+else
+{
+ptr +=
+"<p>Stan PMS7003: WYŁ</p><a class=\"button button-on\" href=\"/pms7003_on\">WŁ.</a>\n";
+}
+
+ptr += "</body>\n";
+ptr += "</html>\n";
+return (ptr);
+}
+\end{lstlisting}
+Znajduje się tutaj główne ciało strony wraz z polami, w których znajdują się wartości z pobranych sensorów oraz statusy pinów kontrolujących przetwornice.
+\section{Kod rozpoczynający}
+\begin{lstlisting}
+void setup()
+{
+Serial.begin(9600); // GPIO1, GPIO3 (TX/RX pin for PMS7003
+Serial1.begin(9600); // GPIO2; for debugging purposes.
+Wire.begin(sda_pin, scl_pin);
+Wire.setClock(100000); // Set I2C clock.
+pinMode(bme280_en, OUTPUT); // Enable pin for BME280
+pinMode(pms7003_en, OUTPUT); // Enable pin for PMS7003
+Serial1.println();
+Serial1.print("Lacze sie do: ");
+Serial.println(mySSID);
+WiFi.begin(mySSID, myPassword); // Start Wi-Fi transmission.
+
+while (WiFi.status() != WL_CONNECTED)
+{
+delay(500);
+Serial1.print(".");
+}
+Serial1.println();
+Serial1.println("Wi-Fi podlaczone!!");
+// Set multiple pages for toggling GPIOs
+
+server.on("/", handle_OnConnect);
+server.on("/bme280_on", handle_bme280_on);
+server.on("/pms7003_on", handle_pms7003_on);
+server.on("/bme280_off", handle_bme280_off);
+server.on("/pms7003_off", handle_pms7003_off);
+server.onNotFound(handle_NotFound);
+
+// Start of web server
+server.begin();
+Serial1.println("Serwer WWW dziala - czekanie na IP dla ESP8266EX... ");
+delay(5000);
+// Printing ESP IP address
+Serial1.println(WiFi.localIP());
+Serial1.println(F("Test BME280"));
+
+if (!bme.begin())
+{
+Serial1.println(
+"Nie odnaleziono BME280, sprawdź połączenia sensor - płytka!");
+while (1)
+;
+}
+Serial1.println("BME280 dziala!");
+}
+\end{lstlisting}
+\par Następuje tutaj ustawienie prędkości komunikacji ESP8266 z PMS7003, ustawienie pinów dla protokołu I$^2$C, zmiana trybu działania pinów kontrolujących przetwornice na wyjścia, zestawienie wielu odnośników dla odświeżania i zmiany statusu pinów oraz drugi port UART dla celów diagnostycznych.
+\newpage
+\section{Kod w pętli}
+\begin{lstlisting}
+void loop()
+{
+server.handleClient();
+getData();
+int analogValue = analogRead(A0) / 1000; // Setup analog pin
+batteryVoltage = (analogValue * 137) / 37;
+if (bme280status)
+{
+digitalWrite(bme280_en, HIGH);
+}
+else
+{
+digitalWrite(bme280_en, LOW);
+}
+
+if (pms7003status)
+{
+digitalWrite(pms7003_en, HIGH);
+}
+else
+{
+digitalWrite(pms7003_en, LOW);
+}
+}
+\end{lstlisting}
+\par Dokonano tutaj utrzymania połączeia z klientem, pobór danych analogowych jak i cyfrowych oraz logika zmiany stanu pinów kontrolujących przetwornice DC-DC.
+\par Kod zajął około 260 linijek, przez co jest dość rozbudowanym programem.
 \newpage
 \chapter{Infografika} 
 \section{Zdjęcia urządzenia}
@@ -614,6 +906,12 @@ Wykorzystano również rezystory podciągające o wartości 10kOhm dla linii SET
 	\caption*{\textit{Źródło: Opracowanie własne}}
 \end{figure}
 \par Wykorzystana przetwornica DC-DC RT6150 dała znakomite rezultaty jeśli chodzi o zasilanie projektu. Pomiar szumu pokazał, że jest on marginalny i nie wpływa na działanie całości. Zasilanie za pomocą tychże układów dało stabilne rezultaty.
+\begin{figure} [!h]
+	\centering
+	\includegraphics[scale=0.3]{images/app01.png}
+	{\tytulyrozdzialow \footnotesize \caption[Aplikacja - strona główna] {Zdjęcie przedstawiające stronę główną aplikacji.}}
+	\caption*{\textit{Źródło: Opracowanie własne}}
+\end{figure}
 \newpage
 \chapter{Streszczenie} 
 \par Wykorzystano do projektu mikrokontroler ESP8266EX, czujnik cząsteczek stałych PMS7003 oraz sensor temperatury, wilgoci oraz ciśnienia BME280. Wyprowadzono również konektor dla czujnika prędkości i kierunku wiatru dla przyszłej rozbudowy.BME280 wykorzystuje protokół I$^2$C, a PMS7003 - UART. Anemometr powinien być zasilany napięciem 3.3V oraz wykorzystywać protokół I$^2$C do komunikacji z mikroprocesorem.
